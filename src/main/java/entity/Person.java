@@ -1,25 +1,19 @@
 package entity;
 
-public class person {
+public class Person {
 
-    private Integer pid;
+    private Long pid;
 
     private String name;
 
     private String sex;
 
-    private String age;
+    private Integer age;
 
-    public person() {
+    public Person() {
     }
 
-    public Integer getPid() {
-        return pid;
-    }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
 
     public String getName() {
         return name;
@@ -37,11 +31,20 @@ public class person {
         this.sex = sex;
     }
 
-    public String getAge() {
+
+    public Long getPid() {
+        return pid;
+    }
+
+    public void setPid(Long pid) {
+        this.pid = pid;
+    }
+
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }

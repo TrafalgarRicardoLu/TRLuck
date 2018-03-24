@@ -2,8 +2,45 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
-    <insert id="">
+<mapper namespace="dao.personDao">
+    <select id="selectAllPersonById" resultType="List" parameterType="Long">
+        SELECT
+              *
+        FROM
+              Person
 
+    </select>
+
+    <select id="selectPersonById" resultType="Person" parameterType="Long">
+            SELECT
+                *
+            FROM
+                Person
+            WHERE
+                id = #{id}
+    </select>
+
+    <insert id="insertNewPerson" parameterType="Person">
+            INSERT
+            INTO Person (id,name,age,sex)
+            VALUES (#{id},#{name},#{age},#{sex})
     </insert>
+
+    <update id="updatePerson" parameterType="String">
+            UPDATE
+            SET name = #{name}
+            FROM
+                Person
+            WHERE
+                id = #{id}
+    </update>
+
+    <delete id="deletePersonById" parameterType="Long">
+        DELETE
+              *
+        FROM
+              Person
+        WHERE
+              id = #{id}
+    </delete>
 </mapper>
