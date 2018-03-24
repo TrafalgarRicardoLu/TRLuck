@@ -1,5 +1,6 @@
 package entity;
 
+
 public class Person {
 
     private Long pid;

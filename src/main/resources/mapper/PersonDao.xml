@@ -3,6 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.personDao">
+    <resultMap id="PersonResultMap" type="Object">
+        <id property="id" column="id"/>
+        <result property="name" column="column"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+    </resultMap>
     <select id="selectAllPersonById" resultType="List" parameterType="Long">
         SELECT
               *
@@ -11,7 +17,7 @@
 
     </select>
 
-    <select id="selectPersonById" resultType="Person" parameterType="Long">
+    <select id="selectPersonById"  resultMap="PersonResultMap" parameterType="Long">
             SELECT
                 *
             FROM
@@ -20,7 +26,7 @@
                 id = #{id}
     </select>
 
-    <insert id="insertNewPerson" parameterType="Person">
+    <insert id="insertNewPerson">
             INSERT
             INTO Person (id,name,age,sex)
             VALUES (#{id},#{name},#{age},#{sex})
