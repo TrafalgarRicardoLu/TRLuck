@@ -7,9 +7,10 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="entity,dao,controller,service">
+    <context:component-scan base-package="entity,controller,service">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+
 
 
     <context:property-placeholder location="classpath:jdbc-config.properties"/>
