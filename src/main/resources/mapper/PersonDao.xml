@@ -3,13 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.personDao">
-    <resultMap id="PersonResultMap" type="Object">
-        <id property="id" column="id"/>
-        <result property="name" column="column"/>
+    <resultMap id="PersonResultMap" type="entity.Person">
+        <id property="pid" column="id"/>
+        <result property="name" column="name"/>
         <result property="age" column="age"/>
         <result property="sex" column="sex"/>
     </resultMap>
-    <select id="selectAllPersonById" resultType="List" parameterType="Long">
+    <select id="selectAllPerson" resultMap="PersonResultMap">
         SELECT
               *
         FROM
@@ -32,18 +32,17 @@
             VALUES (#{id},#{name},#{age},#{sex})
     </insert>
 
-    <update id="updatePerson" parameterType="String">
+    <update id="updatePersonAge">
             UPDATE
-            SET name = #{name}
-            FROM
                 Person
+            SET
+                age = #{age}
             WHERE
                 id = #{id}
     </update>
 
     <delete id="deletePersonById" parameterType="Long">
         DELETE
-              *
         FROM
               Person
         WHERE

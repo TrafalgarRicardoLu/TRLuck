@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface personDao {
 
-    List<Person> selectAllPersonById(Long id);
+    List<Person> selectAllPerson();
 
     Person selectPersonById(Long id);
 
     void insertNewPerson(@Param("id")Long id,@Param("name")String name,@Param("sex")String sex,@Param("age")Integer age);
 
-    void updatePersonName(@Param("name") String name,@Param("id") Long id);
+    void updatePersonAge(@Param("age")Integer age,@Param("id") Long id);
 
     void deletePersonById(Long id);
 
