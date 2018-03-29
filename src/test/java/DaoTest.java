@@ -16,8 +16,16 @@ public class DaoTest {
 
     @Test
     public void DAOTest() {
-        long id = 1;
-        personDao.deletePersonById(id);
+
+//        long id =0;
+//        Person person = personDao.selectPersonById(id);
+//        System.out.println(person.getPid());
+                List<Person> people=personDao.selectAllPerson();
+        for(Person person:people){
+            System.out.println(person.getPid()+" "+person.getPname());
+
+        }
+
     }
 
 }

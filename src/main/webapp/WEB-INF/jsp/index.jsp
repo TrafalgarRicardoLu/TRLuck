@@ -19,7 +19,7 @@
             document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
         }
         else {
-            document.write('<link rel="stylesheet" id="theme-style" href="../../assets/dist/css/app.css">');
+            document.write('<link rel="stylesheet" id="theme-style" href="../../assets/css/app.css">');
         }
     </script>
 </head>
@@ -55,7 +55,7 @@
                                 <li>
                                     <a href="" class="notification-item">
                                         <div class="img-col">
-                                            <div class="img" style="background-image: url('../../assets/dist/assets/faces/3.jpg')"></div>
+                                            <div class="img" style="background-image: url('../../assets/img/faces/3.jpg')"></div>
                                         </div>
                                         <div class="body-col">
                                             <p>
@@ -67,7 +67,7 @@
                                 <li>
                                     <a href="" class="notification-item">
                                         <div class="img-col">
-                                            <div class="img" style="background-image: url('../../assets/dist/assets/faces/5.jpg')"></div>
+                                            <div class="img" style="background-image: url('../../assets/img/faces/5.jpg')"></div>
                                         </div>
                                         <div class="body-col">
                                             <p>
@@ -79,7 +79,7 @@
                                 <li>
                                     <a href="" class="notification-item">
                                         <div class="img-col">
-                                            <div class="img" style="background-image: url('../../assets/dist/assets/faces/8.jpg')"></div>
+                                            <div class="img" style="background-image: url('../../assets/img/faces/8.jpg')"></div>
                                         </div>
                                         <div class="body-col">
                                             <p>
@@ -179,7 +179,7 @@
                                     <a href="static-tables.html"> Static Tables </a>
                                 </li>
                                 <li>
-                                    <a href="responsive-tables.html"> Responsive Tables </a>
+                                    <a href="showAllPeople"> Responsive Tables </a>
                                 </li>
                             </ul>
                         </li>
@@ -403,7 +403,7 @@
         <div class="color-secondary"></div>
     </div>
 </div>
-<script src="../../assets/dist/js/vendor.js"></script>
-<script src="../../assets/dist/js/app.js"></script>
+<script src="../../assets/js/vendor.js"></script>
+<script src="../../assets/js/app.js"></script>
 </body>
 </html>

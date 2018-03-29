@@ -4,10 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.personDao">
     <resultMap id="PersonResultMap" type="entity.Person">
-        <id property="pid" column="id"/>
-        <result property="name" column="name"/>
+        <id property="pid" column="pid"/>
+        <result property="pname" column="pname"/>
         <result property="age" column="age"/>
         <result property="sex" column="sex"/>
+        <result property="password" column="password"/>
     </resultMap>
     <select id="selectAllPerson" resultMap="PersonResultMap">
         SELECT
@@ -23,13 +24,13 @@
             FROM
                 Person
             WHERE
-                id = #{id}
+                pid = #{pid}
     </select>
 
     <insert id="insertNewPerson">
             INSERT
-            INTO Person (id,name,age,sex)
-            VALUES (#{id},#{name},#{age},#{sex})
+            INTO Person (pid,pname,age,sex)
+            VALUES (#{pid},#{pname},#{age},#{sex})
     </insert>
 
     <update id="updatePersonAge">
@@ -38,7 +39,7 @@
             SET
                 age = #{age}
             WHERE
-                id = #{id}
+                pid = #{pid}
     </update>
 
     <delete id="deletePersonById" parameterType="Long">
@@ -46,6 +47,6 @@
         FROM
               Person
         WHERE
-              id = #{id}
+              pid = #{pid}
     </delete>
 </mapper>

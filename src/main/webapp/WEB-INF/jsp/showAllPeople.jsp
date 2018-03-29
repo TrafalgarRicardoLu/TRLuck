@@ -1,5 +1,6 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -21,7 +22,7 @@
             }
             else
             {
-                document.write('<link rel="stylesheet" id="theme-style" href="../../assets/dist/css/app.css">');
+                document.write('<link rel="stylesheet" id="theme-style" href="../../assets/css/app.css">');
             }
         </script>
     </head>
@@ -57,7 +58,7 @@
                                         <li>
                                             <a href="" class="notification-item">
                                                 <div class="img-col">
-                                                    <div class="img" style="background-image: url('../../assets/dist/assets/faces/3.jpg')"></div>
+                                                    <div class="img" style="background-image: url('../../assets/img/faces/3.jpg')"></div>
                                                 </div>
                                                 <div class="body-col">
                                                     <p>
@@ -69,7 +70,7 @@
                                         <li>
                                             <a href="" class="notification-item">
                                                 <div class="img-col">
-                                                    <div class="img" style="background-image: url('../../assets/dist/assets/faces/5.jpg')"></div>
+                                                    <div class="img" style="background-image: url('../../assets/img/faces/5.jpg')"></div>
                                                 </div>
                                                 <div class="body-col">
                                                     <p>
@@ -81,7 +82,7 @@
                                         <li>
                                             <a href="" class="notification-item">
                                                 <div class="img-col">
-                                                    <div class="img" style="background-image: url('../../assets/dist/assets/faces/8.jpg')"></div>
+                                                    <div class="img" style="background-image: url('../../assets/img/faces/8.jpg')"></div>
                                                 </div>
                                                 <div class="body-col">
                                                     <p>
@@ -177,7 +178,7 @@
                                             <a href="static-tables.html"> Static Tables </a>
                                         </li>
                                         <li class="active">
-                                            <a href="responsive-tables.html"> Responsive Tables </a>
+                                            <a href="showAllPeople.jsp"> Responsive Tables </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -303,74 +304,6 @@
                                 <div class="card">
                                     <div class="card-block">
                                         <div class="card-title-block">
-                                            <h3 class="title"> Responsive simple </h3>
-                                        </div>
-                                        <section class="example">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped table-bordered table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Table heading</th>
-                                                            <th>Table heading</th>
-                                                            <th>Table heading</th>
-                                                            <th>Table heading</th>
-                                                            <th>Table heading</th>
-                                                            <th>Table heading</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="section">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-block">
-                                        <div class="card-title-block">
                                             <h3 class="title"> Responsive flip-scroll </h3>
                                         </div>
                                         <section class="example">
@@ -378,98 +311,23 @@
                                                 <table class="table table-striped table-bordered table-hover flip-content">
                                                     <thead class="flip-header">
                                                         <tr>
-                                                            <th>Rendering engine</th>
-                                                            <th>Browser</th>
-                                                            <th>Platform(s)</th>
-                                                            <th>Engine version</th>
-                                                            <th>CSS grade</th>
+                                                            <th>Id</th>
+                                                            <th>Name</th>
+                                                            <th>Age</th>
+                                                            <th>Sex</th>
+                                                            <th>Password</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                    <C:forEach var="Person" items="${People}">
                                                         <tr class="odd gradeX">
-                                                            <td>Trident</td>
-                                                            <td>Internet Explorer 4.0</td>
-                                                            <td>Win 95+</td>
-                                                            <td class="center">4</td>
-                                                            <td class="center">X</td>
+                                                            <td>${Person.pid}</td>
+                                                            <td>${Person.pname}</td>
+                                                            <td>${Person.age}</td>
+                                                            <td>${Person.sex}</td>
+                                                            <td>${Person.password}</td>
                                                         </tr>
-                                                        <tr class="even gradeC">
-                                                            <td>Trident</td>
-                                                            <td>Internet Explorer 5.0</td>
-                                                            <td>Win 95+</td>
-                                                            <td class="center">5</td>
-                                                            <td class="center">C</td>
-                                                        </tr>
-                                                        <tr class="odd gradeA">
-                                                            <td>Trident</td>
-                                                            <td>Internet Explorer 5.5</td>
-                                                            <td>Win 95+</td>
-                                                            <td class="center">5.5</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
-                                                        <tr class="even gradeA">
-                                                            <td>Trident</td>
-                                                            <td>Internet Explorer 6</td>
-                                                            <td>Win 98+</td>
-                                                            <td class="center">6</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
-                                                        <tr class="odd gradeA">
-                                                            <td>Trident</td>
-                                                            <td>Internet Explorer 7</td>
-                                                            <td>Win XP SP2+</td>
-                                                            <td class="center">7</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
-                                                        <tr class="even gradeA">
-                                                            <td>Trident</td>
-                                                            <td>AOL browser (AOL desktop)</td>
-                                                            <td>Win XP</td>
-                                                            <td class="center">6</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
-                                                        <tr class="gradeA">
-                                                            <td>Gecko</td>
-                                                            <td>Firefox 1.0</td>
-                                                            <td>Win 98+ / OSX.2+</td>
-                                                            <td class="center">1.7</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
-                                                        <tr class="gradeA">
-                                                            <td>Gecko</td>
-                                                            <td>Firefox 1.5</td>
-                                                            <td>Win 98+ / OSX.2+</td>
-                                                            <td class="center">1.8</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
-                                                        <tr class="gradeA">
-                                                            <td>Gecko</td>
-                                                            <td>Firefox 2.0</td>
-                                                            <td>Win 98+ / OSX.2+</td>
-                                                            <td class="center">1.8</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
-                                                        <tr class="gradeA">
-                                                            <td>Gecko</td>
-                                                            <td>Firefox 3.0</td>
-                                                            <td>Win 2k+ / OSX.3+</td>
-                                                            <td class="center">1.9</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
-                                                        <tr class="gradeA">
-                                                            <td>Gecko</td>
-                                                            <td>Camino 1.0</td>
-                                                            <td>OSX.2+</td>
-                                                            <td class="center">1.8</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
-                                                        <tr class="gradeA">
-                                                            <td>Gecko</td>
-                                                            <td>Camino 1.5</td>
-                                                            <td>OSX.3+</td>
-                                                            <td class="center">1.8</td>
-                                                            <td class="center">A</td>
-                                                        </tr>
+                                                    </C:forEach>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -576,7 +434,7 @@
                 <div class="color-secondary"></div>
             </div>
         </div>
-        <script src="../../assets/dist/js/vendor.js"></script>
-        <script src="../../assets/dist/js/app.js"></script>
+        <script src="../../assets/js/vendor.js"></script>
+        <script src="../../assets/js/app.js"></script>
     </body>
 </html>

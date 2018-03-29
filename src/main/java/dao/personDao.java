@@ -13,9 +13,9 @@ public interface personDao {
 
     Person selectPersonById(Long id);
 
-    void insertNewPerson(@Param("id")Long id,@Param("name")String name,@Param("sex")String sex,@Param("age")Integer age);
+    void insertNewPerson(@Param("pid")Long id,@Param("pname")String name,@Param("sex")String sex,@Param("age")Integer age);
 
-    void updatePersonAge(@Param("age")Integer age,@Param("id") Long id);
+    void updatePersonAge(@Param("age")Integer age,@Param("pid") Long id);
 
     void deletePersonById(Long id);
 
