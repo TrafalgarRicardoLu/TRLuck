@@ -21,8 +21,8 @@ public class PersonService {
         return personDao.selectPersonById(id);
     }
 
-    public void insertNewPerson(Long id,String name, String sex, Integer age){
-        personDao.insertNewPerson(id,name,sex,age);
+    public void insertNewPerson(String name, String sex, Integer age,String password){
+        personDao.insertNewPerson(name,sex,age,password);
     }
 
     public void updatePersonAge(Integer age, Long id){

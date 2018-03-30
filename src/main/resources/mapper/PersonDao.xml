@@ -27,10 +27,11 @@
                 pid = #{pid}
     </select>
 
-    <insert id="insertNewPerson">
+    <insert id="insertNewPerson" useGeneratedKeys="true" keyProperty="pid">
             INSERT
-            INTO Person (pid,pname,age,sex)
-            VALUES (#{pid},#{pname},#{age},#{sex})
+            INTO
+                Person (pname,age,sex,password)
+            VALUES (#{pname},#{age},#{sex},#{password})
     </insert>
 
     <update id="updatePersonAge">

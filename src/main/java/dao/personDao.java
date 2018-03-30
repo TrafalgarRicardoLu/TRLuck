@@ -13,7 +13,7 @@ public interface personDao {
 
     Person selectPersonById(Long id);
 
-    void insertNewPerson(@Param("pid")Long id,@Param("pname")String name,@Param("sex")String sex,@Param("age")Integer age);
+    void insertNewPerson(@Param("pname")String name,@Param("sex")String sex,@Param("age")Integer age,@Param("password")String password);
 
     void updatePersonAge(@Param("age")Integer age,@Param("pid") Long id);
 

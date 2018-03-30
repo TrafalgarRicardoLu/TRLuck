@@ -31,4 +31,13 @@ public class PersonController {
         return "showAllPeople";
     }
 
+    @RequestMapping(value = "/addNewPerson",method = RequestMethod.POST)
+    public String addPerson(HttpServletRequest request){
+        String pname = request.getParameter("pname");
+        String sex = request.getParameter("sex");
+        String password = request.getParameter("password");
+        Integer age = 18;
+        personService.insertNewPerson(pname,sex,age,password);
+        return "index";
+    }
 }

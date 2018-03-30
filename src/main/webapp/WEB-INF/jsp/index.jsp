@@ -139,19 +139,19 @@
                     <ul class="sidebar-menu metismenu" id="sidebar-menu">
                         <li class="active">
                             <a href="index.jsp">
-                                <i class="fa fa-home"></i> Dashboard </a>
+                                <i class="fa fa-home"></i> Index </a>
                         </li>
                         <li>
                             <a href="">
-                                <i class="fa fa-th-large"></i> Items Manager
+                                <i class="fa fa-th-large"></i> Person
                                 <i class="fa arrow"></i>
                             </a>
                             <ul class="sidebar-nav">
                                 <li>
-                                    <a href="items-list.html"> Items List </a>
+                                    <a href="addPerson.html"> Add Person </a>
                                 </li>
                                 <li>
-                                    <a href="item-editor.html"> Item Editor </a>
+                                    <a href="/showAllPeople"> People List </a>
                                 </li>
                             </ul>
                         </li>
