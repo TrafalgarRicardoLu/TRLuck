@@ -1,4 +1,6 @@
+import dao.adminDao;
 import dao.personDao;
+import entity.Admin;
 import entity.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,11 +16,20 @@ public class DaoTest {
     @Autowired
     private personDao personDao;
 
+    @Autowired
+    private adminDao adminDao;
+
     @Test
-    public void DAOTest() {
+    public void personDAOTest() {
         String id = "3";
         personDao.insertNewPerson("ricardo","male",23,"123");
 
+    }
+
+    @Test
+    public void AdminDaoTest(){
+        Admin admin=adminDao.selectAdminByName("ricardo");
+        System.out.println(admin.getAid()+" "+admin.getPassword()+" "+admin.getAuthority());
     }
 
 }
