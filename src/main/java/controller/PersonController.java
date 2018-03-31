@@ -25,19 +25,24 @@ public class PersonController {
     @RequestMapping(value = "/showAllPeople",method = RequestMethod.GET)
     public String showAllPeople(HttpServletRequest request){
         List<Person> people = personService.selectAllPerson();
-        for(Person person:people)
-            System.out.println(person.getPid());
         request.setAttribute("People",people);
         return "showAllPeople";
     }
 
     @RequestMapping(value = "/addNewPerson",method = RequestMethod.POST)
-    public String addPerson(HttpServletRequest request){
+    public String addNewPerson(HttpServletRequest request){
         String pname = request.getParameter("pname");
         String sex = request.getParameter("sex");
         String password = request.getParameter("password");
         Integer age = 18;
         personService.insertNewPerson(pname,sex,age,password);
         return "index";
+    }
+
+    @RequestMapping(value = "/deletePerson",method = RequestMethod.GET)
+    public String deletePerson(HttpServletRequest request){
+        String pid = request.getParameter("deletedPid");
+        personService.deletePersonById(Long.valueOf(pid));
+        return "redirect:showAllPeople";
     }
 }

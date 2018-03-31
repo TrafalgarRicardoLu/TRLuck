@@ -17,7 +17,7 @@ public interface personDao {
 
     void updatePersonAge(@Param("age")Integer age,@Param("pid") Long id);
 
-    void deletePersonById(Long id);
+    void deletePersonById(@Param("pid") Long id);
 
 
 }

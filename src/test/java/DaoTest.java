@@ -16,16 +16,11 @@ public class DaoTest {
 
     @Test
     public void DAOTest() {
-
-//        long id =0;
-//        Person person = personDao.selectPersonById(id);
-//        System.out.println(person.getPid());
-                List<Person> people=personDao.selectAllPerson();
-        for(Person person:people){
-            System.out.println(person.getPid()+" "+person.getPname());
-
-        }
+        String id = "3";
+        personDao.insertNewPerson("ricardo","male",23,"123");
 
     }
 
 }
+
+

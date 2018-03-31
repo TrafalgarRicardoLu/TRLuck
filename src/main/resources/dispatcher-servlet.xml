@@ -11,7 +11,6 @@
 
     <mvc:resources location="/WEB-INF/jsp/" mapping="/**/*.html"/>
 
-    <mvc:resources location="/" mapping="/*.html"/>
     <!--配置视图前缀后缀-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
