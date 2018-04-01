@@ -10,6 +10,8 @@
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="../../assets/css/vendor.css">
     <link rel="stylesheet" href="../../assets/css/app.css">
+    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../assets/js/jquery.validate.min.js"></script>
     <!-- Theme initialization -->
     <script>
         var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
@@ -22,6 +24,35 @@
             document.write('<link rel="stylesheet" id="theme-style" href="../../assets/css/app.css">');
         }
     </script>
+    <script>
+        $(document).ready(function () {
+            $("#addFrom").validate({
+                rules: {
+                    pname: "required",
+                    password: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 15
+                    },
+                    confirm_password: {
+                        required: true,
+                        equalTo: "#password"
+                    }
+                },
+                messages: {
+                    pname: "Can't be empty",
+                    password: {
+                        required: "Can't be empty"
+                    },
+                    confirm_password: {
+                        required: "Can't be empty",
+                        equalTo: "Not same with former"
+                    }
+                }
+            });
+        });
+    </script>
+
 </head>
 <body>
 <div class="main-wrapper">
@@ -315,7 +346,7 @@
                             <div class="title-block">
                                 <h3 class="title"> Underlined Inputs </h3>
                             </div>
-                            <form role="form" action="/addNewPerson" method="post">
+                            <form id="addFrom" action="/addNewPerson" method="post">
                                 <div class="form-group">
                                     <label class="control-label">Input Name</label>
                                     <input type="text" class="form-control underlined" placeholder="Name" name="pname">
@@ -328,7 +359,7 @@
                                 <div class="form-group">
                                     <label class="control-label">Input Password Again</label>
                                     <input type="password" class="form-control underlined" placeholder="Password"
-                                           name="password">
+                                           name="confirm_password">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Inline Radios</label>
