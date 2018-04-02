@@ -2,6 +2,7 @@ package service;
 
 import dao.personDao;
 import entity.Person;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ public class PersonService {
     }
 
     public void insertNewPerson(String name, String sex, Integer age,String password){
+        password = BCrypt.hashpw(password,BCrypt.gensalt());
         personDao.insertNewPerson(name,sex,age,password);
     }
 
