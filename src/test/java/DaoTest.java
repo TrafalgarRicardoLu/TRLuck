@@ -4,6 +4,7 @@ import entity.Admin;
 import entity.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -21,8 +22,8 @@ public class DaoTest {
 
     @Test
     public void personDAOTest() {
-        String id = "3";
-        personDao.insertNewPerson("ricardo","male",23,"123");
+        long id = 1;
+        personDao.updatePersonPasswordById(BCrypt.hashpw("lujianhui",BCrypt.gensalt()),id);
 
     }
 

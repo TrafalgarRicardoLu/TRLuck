@@ -50,4 +50,13 @@
         WHERE
               pid = #{pid}
     </delete>
+
+    <update id="updatePersonPasswordById">
+        UPDATE
+            Person
+        SET
+            password = #{password}
+        WHERE
+            pid = #{pid}
+    </update>
 </mapper>

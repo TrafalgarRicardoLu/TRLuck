@@ -2,6 +2,7 @@ package service;
 
 import dao.adminDao;
 import entity.Admin;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class AdminService {
@@ -10,6 +11,7 @@ public class AdminService {
     adminDao adminDao;
 
     public void insertAdmin(String aname,String password){
+        password = BCrypt.hashpw(password,BCrypt.gensalt());
         adminDao.insertAdmin(aname,password);
     }
 
