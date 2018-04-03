@@ -23,6 +23,16 @@
             document.write('<link rel="stylesheet" id="theme-style" href="../../assets/css/app.css">');
         }
     </script>
+    <script>
+        function deleteConfirm() {
+            var c = confirm("Are you sure to delete the person?");
+            if(c == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="main-wrapper">
@@ -335,7 +345,7 @@
                                                     <td>${Person.age}</td>
                                                     <td>${Person.sex}</td>
                                                     <td>${Person.password}</td>
-                                                    <td><a class="fa fa-times-circle-o" href="/deletePerson?deletedPid=${Person.pid}"></a> </td>
+                                                    <td><a class="fa fa-times-circle-o" href="/deletePerson?deletedPid=${Person.pid}" onclick="return deleteConfirm()"></a> </td>
                                                 </tr>
                                             </C:forEach>
                                             </tbody>
