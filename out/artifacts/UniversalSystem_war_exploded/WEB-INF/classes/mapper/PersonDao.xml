@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.personDao">
+    <resultMap id="PersonResultMap" type="entity.Person">
+        <id property="pid" column="pid"/>
+        <result property="pname" column="pname"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <result property="password" column="password"/>
+    </resultMap>
+    <select id="selectAllPerson" resultMap="PersonResultMap">
+        SELECT
+              *
+        FROM
+              Person
+
+    </select>
+
+    <select id="selectPersonById"  resultMap="PersonResultMap" parameterType="Long">
+            SELECT
+                *
+            FROM
+                Person
+            WHERE
+                pid = #{pid}
+    </select>
+
+    <insert id="insertNewPerson" useGeneratedKeys="true" keyProperty="pid">
+            INSERT
+            INTO
+                Person (pname,age,sex,password)
+            VALUES (#{pname},#{age},#{sex},#{password})
+    </insert>
+
+    <update id="updatePersonAge">
+            UPDATE
+                Person
+            SET
+                age = #{age}
+            WHERE
+                pid = #{pid}
+    </update>
+
+    <delete id="deletePersonById" parameterType="Long">
+        DELETE
+        FROM
+              Person
+        WHERE
+              pid = #{pid}
+    </delete>
+
+    <update id="updatePersonPasswordById">
+        UPDATE
+            Person
+        SET
+            password = #{password}
+        WHERE
+            pid = #{pid}
+    </update>
+</mapper>
