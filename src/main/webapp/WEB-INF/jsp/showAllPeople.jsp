@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -12,10 +13,20 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="../../assests/main/style.css">
     <link rel="stylesheet" href="../../assests/font-awesome/css/font-awesome.min.css">
+    <script>
+        function deleteConfirm() {
+            var c = confirm("Are you sure to delete the person?");
+            if(c == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="wrapper">
-    <!-- Sidebar Holder -->
+ <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>Universal System</h3>
@@ -50,7 +61,28 @@
             </div>
         </nav>
         <div id="article">
-            <h2 class="text-center">Welcome Come to Universal System!</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="Person" items="${People}">
+                    <tr>
+                        <td>${Person.pid}</td>
+                        <td>${Person.pname}</td>
+                        <td>${Person.age}</td>
+                        <td>${Person.sex}</td>
+                        <td><a href="/deletePerson?deletedPid=${Person.pid}" class="fa fa-times-circle-o" onclick="return deleteConfirm()"/></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
