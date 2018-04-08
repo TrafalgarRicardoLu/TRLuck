@@ -12,4 +12,3 @@ Mybatis |  stored procedures and advanced mappings
 Spring Security | Login check and authority control
 Sql | Get information from database
 
-*The front page style is from [modular](https://github.com/modularcode/modular-admin-html)*

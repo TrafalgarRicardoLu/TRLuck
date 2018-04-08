@@ -14,14 +14,14 @@
 
 
     <!--Spring Security-->
-    <sec:http auto-config="true">
-        <sec:intercept-url pattern="/login.html" access="permitAll()"/>
-        <sec:intercept-url pattern="/index" access="hasRole('ROLE_ADMIN')"/>
-        <sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
-        <sec:form-login login-page="/login.html" default-target-url="/index"
-                    always-use-default-target="false"
-                    authentication-failure-url="/login?error=true"></sec:form-login>
-    </sec:http>
+    <!--<sec:http auto-config="true">-->
+        <!--<sec:intercept-url pattern="/login.html" access="permitAll()"/>-->
+        <!--<sec:intercept-url pattern="/index" access="hasRole('ROLE_ADMIN')"/>-->
+        <!--<sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>-->
+        <!--<sec:form-login login-page="/login.html" default-target-url="/index"-->
+                    <!--always-use-default-target="false"-->
+                    <!--authentication-failure-url="/login?error=true"></sec:form-login>-->
+    <!--</sec:http>-->
 
 
 

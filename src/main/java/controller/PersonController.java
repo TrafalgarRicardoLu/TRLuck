@@ -19,7 +19,7 @@ public class PersonController {
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String index(){
-        return "index";
+        return "redirect:index.html";
     }
 
     @RequestMapping(value = "/showAllPeople",method = RequestMethod.GET)
