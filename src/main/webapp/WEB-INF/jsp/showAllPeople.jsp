@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="../../assests/bootstrap/css/bootstrap.min.css">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="../../assests/main/style.css">
+    <link rel="stylesheet" href="../../assests/main/css/style.css">
     <link rel="stylesheet" href="../../assests/font-awesome/css/font-awesome.min.css">
     <script>
         function deleteConfirm() {
@@ -89,7 +89,7 @@
 
 
 <!-- jQuery CDN -->
-<script src="../../assests/bootstrap/js/jquery-3.3.1.min.js"></script>
+<script src="../../assests/js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap Js CDN -->
 <script src="../../assests/bootstrap/js/bootstrap.min.js"></script>
 
