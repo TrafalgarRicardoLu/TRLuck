@@ -151,7 +151,6 @@ a.article, a.article:hover {
     transition: all 0.3s;
 }
 
-
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
@@ -173,18 +172,32 @@ a.article, a.article:hover {
        Form
 ----------------------------------------------------- */
 
-.form-center{
+.form-center {
     position: center;
     padding: 20px 20% 20px 20%;
 }
+
 /* ---------------------------------------------------
-       Form
+       Section
 ----------------------------------------------------- */
 
-.section{
+.section {
     background-color: #fff;
     position: relative;
     display: block;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
     margin: 15px 20% 15px 20%;
 }
+
+/* ---------------------------------------------------
+      Mask
+----------------------------------------------------- */
+.wrap{
+    background: url(../../img/sky.jpg) no-repeat;
+    -webkit-background-size: 100%;
+}
+.inner{
+    height: 100%;
+    background: rgba(0,0,0,.8);
+}
+
