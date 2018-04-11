@@ -45,4 +45,10 @@ public class PersonController {
         personService.deletePersonById(Long.valueOf(pid));
         return "redirect:showAllPeople";
     }
+
+    @RequestMapping(value = "/loginCheck",method = RequestMethod.POST)
+    public String loginCheck(){
+        return "redirect:index.html";
+    }
+
 }

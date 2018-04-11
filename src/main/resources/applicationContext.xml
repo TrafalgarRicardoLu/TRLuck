@@ -14,13 +14,27 @@
 
 
     <!--Spring Security-->
+
+    <sec:http pattern="/assests/**" security="none"/>
+    <sec:http pattern="/login.html" security="none"/>
+
+    <sec:http pattern="/login_failure.html" security="none"/>
     <sec:http auto-config="true">
-        <sec:intercept-url pattern="/login.html" access="permitAll()"/>
         <sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+        <sec:csrf disabled="true"/>
+        <sec:form-login login-page="/login.html" default-target-url="/"
+                        login-processing-url="/loginCheck"
+                        username-parameter="username"
+                        password-parameter="password"
+                        always-use-default-target="false"
+                        authentication-failure-url="/login_failure.html"></sec:form-login>
     </sec:http>
+
+    <bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 
     <sec:authentication-manager>
         <sec:authentication-provider>
+            <sec:password-encoder ref="bcryptEncoder"/>
             <sec:jdbc-user-service data-source-ref="dataSource"
                                    users-by-username-query="select aname,password,enabled from Admin where aname= ?"
                                    authorities-by-username-query="select aname,role from Admin_Role where aname =?"/>

@@ -4,8 +4,8 @@ import entity.Admin;
 import entity.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -29,8 +29,7 @@ public class DaoTest {
 
     @Test
     public void AdminDaoTest(){
-        Admin admin=adminDao.selectAdminByName("ricardo");
-        System.out.println(admin.getAid()+" "+admin.getPassword()+" "+admin.getAuthority());
+
     }
 
 }
