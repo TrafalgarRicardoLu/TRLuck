@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import service.PersonService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class PersonController {
@@ -23,32 +25,26 @@ public class PersonController {
     }
 
     @RequestMapping(value = "/showAllPeople",method = RequestMethod.GET)
-    public String showAllPeople(HttpServletRequest request){
+    public String showAllPeople(Map<String,Object> map){
         List<Person> people = personService.selectAllPerson();
-        request.setAttribute("People",people);
+        map.put("People",people);
         return "showAllPeople";
     }
 
     @RequestMapping(value = "/addPerson",method = RequestMethod.POST)
-    public String addNewPerson(HttpServletRequest request){
-        String pname = request.getParameter("pname");
-        String sex = request.getParameter("sex");
-        String password = request.getParameter("password");
-        Integer age = 18;
+    public String addNewPerson(@RequestParam(value = "pname")String pname,
+                               @RequestParam(value = "sex")String sex,
+                               @RequestParam(value = "password")String password){
+        Integer age = 20;
         personService.insertNewPerson(pname,sex,age,password);
-        return "redirect:index.html";
+        return "redirect:showAllPeople";
     }
 
     @RequestMapping(value = "/deletePerson",method = RequestMethod.GET)
-    public String deletePerson(HttpServletRequest request){
-        String pid = request.getParameter("deletedPid");
+    public String deletePerson(@RequestParam(value = "deletedPid")String pid){
         personService.deletePersonById(Long.valueOf(pid));
         return "redirect:showAllPeople";
     }
 
-    @RequestMapping(value = "/loginCheck",method = RequestMethod.POST)
-    public String loginCheck(){
-        return "redirect:index.html";
-    }
 
 }

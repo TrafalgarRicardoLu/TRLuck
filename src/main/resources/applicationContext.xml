@@ -17,8 +17,8 @@
 
     <sec:http pattern="/assests/**" security="none"/>
     <sec:http pattern="/login.html" security="none"/>
-
     <sec:http pattern="/login_failure.html" security="none"/>
+
     <sec:http auto-config="true">
         <sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
         <sec:csrf disabled="true"/>
