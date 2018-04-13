@@ -29,7 +29,7 @@ public class DaoTest {
 
     @Test
     public void AdminDaoTest(){
-
+            adminDao.insertAdmin("xxxx5","2234");
     }
 
 }

@@ -14,7 +14,11 @@
             INSERT
             INTO
                 Admin (aname,password)
-            VALUES (#{aname},#{password})
+            VALUES (#{aname},#{password});
+            INSERT
+            INTO
+                Admin_Role (aname)
+            VALUE (#{aname});
     </insert>
 
     <select id="selectAdminByName" parameterType="String" resultMap="AdminResultMap">

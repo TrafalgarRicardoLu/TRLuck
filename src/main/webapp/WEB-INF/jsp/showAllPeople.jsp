@@ -68,6 +68,7 @@
                     <th>Name</th>
                     <th>Age</th>
                     <th>Sex</th>
+                    <th>Operation</th>
                 </tr>
                 </thead>
                 <tbody>

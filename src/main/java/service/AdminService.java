@@ -20,6 +20,7 @@ public class AdminService {
     }
 
     public void updatePasswordById(Long aid,String password){
+        password = BCrypt.hashpw(password,BCrypt.gensalt());
         adminDao.updatePasswordById(aid,password);
     }
 
