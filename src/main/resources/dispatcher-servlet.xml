@@ -15,13 +15,26 @@
     <context:component-scan base-package="controller"/>
     <mvc:default-servlet-handler/>
 
+
     <mvc:resources location="/WEB-INF/html/" mapping="/**/*.html"/>
 
-    <!--配置视图前缀后缀-->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/jsp/"/>      <!-- 前缀 -->
-        <property name="suffix" value=".jsp"/>   <!-- 后缀 -->
+    <bean id="templateResolver"
+          class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+        <constructor-arg ref="servletContext"/>
+        <property name="prefix" value="/WEB-INF/template/" />
+        <property name="suffix" value=".html" />
+        <property name="templateMode" value="HTML5" />
+    </bean>
+
+    <bean id="templateEngine"
+          class="org.thymeleaf.spring4.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver" />
+    </bean>
+
+    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine" />
+        <property name="order" value="1" />
+        <property name="characterEncoding" value="UTF-8"/>
     </bean>
 
 </beans>

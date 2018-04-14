@@ -1,6 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,15 +71,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="Person" items="${People}">
-                    <tr>
-                        <td>${Person.pid}</td>
-                        <td>${Person.pname}</td>
-                        <td>${Person.age}</td>
-                        <td>${Person.sex}</td>
-                        <td><a href="/deletePerson?deletedPid=${Person.pid}" class="fa fa-times-circle-o" onclick="return deleteConfirm()"/></td>
-                    </tr>
-                </c:forEach>
+                <tr th:each="Person:${People}">
+
+                        <td th:text="${Person.pid}"></td>
+                        <td th:text="${Person.pname}"></td>
+                        <td th:text="${Person.age}"></td>
+                        <td th:text="${Person.sex}"></td>
+                        <td><a href="/deletePerson" th:href="@{http://localhost:8080/deletePerson(deletedPid=${Person.pid})}"class="fa fa-times-circle-o" onclick="return deleteConfirm()"/></td>
+                </tr>
                 </tbody>
             </table>
 
