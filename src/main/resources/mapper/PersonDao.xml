@@ -8,7 +8,7 @@
         <result property="pname" column="pname"/>
         <result property="age" column="age"/>
         <result property="sex" column="sex"/>
-        <result property="password" column="password"/>
+        <result property="department" column="department"/>
     </resultMap>
     <select id="selectAllPerson" resultMap="PersonResultMap">
         SELECT
@@ -30,11 +30,11 @@
     <insert id="insertNewPerson" useGeneratedKeys="true" keyProperty="pid">
             INSERT
             INTO
-                Person (pname,age,sex,password)
-            VALUES (#{pname},#{age},#{sex},#{password})
+                Person (pname,age,sex,department)
+            VALUES (#{pname},#{age},#{sex},#{department})
     </insert>
 
-    <update id="updatePersonAge">
+    <update id="updateAgeById">
             UPDATE
                 Person
             SET
@@ -51,11 +51,11 @@
               pid = #{pid}
     </delete>
 
-    <update id="updatePersonPasswordById">
+    <update id="updateDepartmentById">
         UPDATE
             Person
         SET
-            password = #{password}
+            department = #{department}
         WHERE
             pid = #{pid}
     </update>

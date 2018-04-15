@@ -34,9 +34,9 @@ public class PersonController {
     @RequestMapping(value = "/addPerson",method = RequestMethod.POST)
     public String addNewPerson(@RequestParam(value = "pname")String pname,
                                @RequestParam(value = "sex")String sex,
-                               @RequestParam(value = "password")String password){
+                               @RequestParam(value = "department")String department){
         Integer age = 20;
-        personService.insertNewPerson(pname,sex,age,password);
+        personService.insertNewPerson(pname,sex,age,department);
         return "redirect:showAllPeople";
     }
 

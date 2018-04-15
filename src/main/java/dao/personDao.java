@@ -13,14 +13,14 @@ public interface personDao {
 
     Person selectPersonById(Long id);
 
-    void insertNewPerson(@Param("pname") String name, @Param("sex") String sex, @Param("age") Integer age, @Param("password") String password);
+    void insertNewPerson(@Param("pname") String name, @Param("sex") String sex, @Param("age") Integer age, @Param("department") String department);
 
 
     void deletePersonById(@Param("pid") Long id);
 
-    void updatePersonAge(@Param("age") Integer age, @Param("pid") Long id);
+    void updateAgeById(@Param("age") Integer age, @Param("pid") Long id);
 
-    void updatePersonPasswordById(@Param("password")String password,@Param("pid")Long id);
+    void updateDepartmentById(@Param("department")String department,@Param("pid")Long id);
 
 
 }

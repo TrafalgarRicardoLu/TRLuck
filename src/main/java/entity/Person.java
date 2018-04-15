@@ -11,7 +11,7 @@ public class Person {
 
     private Integer age;
 
-    private String password;
+    private String department;
 
     public Person() {
     }
@@ -50,11 +50,11 @@ public class Person {
         this.pname = pname;
     }
 
-    public String getPassword() {
-        return password;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }

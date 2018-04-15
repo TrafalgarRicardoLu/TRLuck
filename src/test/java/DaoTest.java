@@ -23,7 +23,7 @@ public class DaoTest {
     @Test
     public void personDAOTest() {
         long id = 1;
-        personDao.updatePersonPasswordById(BCrypt.hashpw("lujianhui",BCrypt.gensalt()),id);
+        personDao.updateDepartmentById(BCrypt.hashpw("lujianhui",BCrypt.gensalt()),id);
 
     }
 
