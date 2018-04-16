@@ -22,7 +22,7 @@ public class DaoTest {
 
     @Test
     public void personDAOTest() {
-
+        personDao.updateBirthById("1990-1-1", (long) 1);
     }
 
     @Test

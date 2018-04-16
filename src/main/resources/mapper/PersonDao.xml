@@ -30,15 +30,15 @@
     <insert id="insertNewPerson" useGeneratedKeys="true" keyProperty="pid">
             INSERT
             INTO
-                Person (pname,age,sex,department)
-            VALUES (#{pname},#{age},#{sex},#{department})
+                Person (pname,birth,sex,department)
+            VALUES (#{pname},#{birth},#{sex},#{department})
     </insert>
 
-    <update id="updateAgeById">
+    <update id="updateBirthById">
             UPDATE
                 Person
             SET
-                age = #{age}
+                birth = #{birth}
             WHERE
                 pid = #{pid}
     </update>

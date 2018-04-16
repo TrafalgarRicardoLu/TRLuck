@@ -34,7 +34,7 @@ public class PersonRSETController {
 
     @RequestMapping(value = "/{pid}",method = RequestMethod.PUT)
     public void createNewPerson(@RequestBody Person person){
-        personService.insertNewPerson(person.getPname(),person.getSex(),person.getAge(),person.getDepartment());
+        personService.insertNewPerson(person.getPname(),person.getSex(),person.getBirth(),person.getDepartment());
     }
 
     @RequestMapping(value = "/{pid}",method = RequestMethod.POST)

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import service.PersonService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,9 +36,20 @@ public class PersonController {
     @RequestMapping(value = "/addPerson",method = RequestMethod.POST)
     public String addNewPerson(@RequestParam(value = "pname")String pname,
                                @RequestParam(value = "sex")String sex,
-                               @RequestParam(value = "department")String department){
-        Integer age = 20;
-        personService.insertNewPerson(pname,sex,age,department);
+                               @RequestParam(value = "department")String department,
+                               @RequestParam(value = "year")String year,
+                               @RequestParam(value = "month")String month,
+                               @RequestParam(value = "day")String day){
+        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+        Integer month_int;
+        for(month_int=0;month_int<months.length;month_int++){
+            if (month.equals(months[month_int])){
+                break;
+            }
+        }
+        month_int++;
+        String birth = year+'-'+month_int.toString()+'-'+day;
+        personService.insertNewPerson(pname,sex,birth,department);
         return "redirect:showAllPeople";
     }
 

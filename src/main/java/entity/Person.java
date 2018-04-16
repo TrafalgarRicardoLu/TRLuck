@@ -1,6 +1,8 @@
 package entity;
 
 
+import java.util.Date;
+
 public class Person {
 
     private Long pid;
@@ -9,7 +11,7 @@ public class Person {
 
     private String sex;
 
-    private Integer age;
+    private String  birth;
 
     private String department;
 
@@ -34,13 +36,6 @@ public class Person {
         this.pid = pid;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 
     public String getPname() {
         return pname;
@@ -56,5 +51,13 @@ public class Person {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
     }
 }
