@@ -22,8 +22,6 @@ public class DaoTest {
 
     @Test
     public void personDAOTest() {
-        long id = 1;
-        personDao.updateDepartmentById(BCrypt.hashpw("lujianhui",BCrypt.gensalt()),id);
 
     }
 

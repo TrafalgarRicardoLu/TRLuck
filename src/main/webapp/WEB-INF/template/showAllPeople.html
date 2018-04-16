@@ -73,10 +73,10 @@
                 <tbody>
                 <tr th:each="Person:${People}">
 
-                        <td th:text="${Person.pid}">id</td>
-                        <td th:text="${Person.pname}">name</td>
-                        <td th:text="${Person.age}">age</td>
-                        <td th:text="${Person.sex}">sex</td>
+                        <td th:text="${Person.pid}">ID</td>
+                        <td th:text="${Person.pname}">Name</td>
+                        <td th:text="${Person.department}">Depart</td>
+                        <td th:text="${Person.sex}">Sex</td>
                         <td><a th:href="@{http://localhost:8080/deletePerson(deletedPid=${Person.pid})}"class="fa fa-times-circle-o" onclick="return deleteConfirm()"/></td>
                 </tr>
                 </tbody>
