@@ -22,12 +22,12 @@ public class DaoTest {
 
     @Test
     public void personDAOTest() {
-        personDao.updateBirthById("1990-1-1", (long) 1);
+                personDao.updateBirthById("1990-1-1", (long) 13);
     }
 
     @Test
-    public void AdminDaoTest(){
-            adminDao.insertAdmin("xxxx5","2234");
+    public void AdminDaoTest() {
+        adminDao.insertAdmin("xxxx5", "2234");
     }
 
 }

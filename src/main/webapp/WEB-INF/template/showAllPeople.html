@@ -15,9 +15,9 @@
     <script>
         function deleteConfirm() {
             var c = confirm("Are you sure to delete the person?");
-            if(c == true){
+            if (c == true) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }
@@ -25,7 +25,7 @@
 </head>
 <body>
 <div class="wrapper">
- <!-- Sidebar Holder -->
+    <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>Universal System</h3>
@@ -65,19 +65,21 @@
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Age</th>
+                    <th>Birth</th>
+                    <th>Depart</th>
                     <th>Sex</th>
                     <th>Operation</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="Person:${People}">
-
-                        <td th:text="${Person.pid}">ID</td>
-                        <td th:text="${Person.pname}">Name</td>
-                        <td th:text="${Person.department}">Depart</td>
-                        <td th:text="${Person.sex}">Sex</td>
-                        <td><a th:href="@{http://localhost:8080/deletePerson(deletedPid=${Person.pid})}"class="fa fa-times-circle-o" onclick="return deleteConfirm()"/></td>
+                    <td th:text="${Person.pid}">ID</td>
+                    <td th:text="${Person.pname}">Name</td>
+                    <td th:text="${Person.birth}">Birth</td>
+                    <td th:text="${Person.department}">Depart</td>
+                    <td th:text="${Person.sex}">Sex</td>
+                    <td><a th:href="@{http://localhost:8080/deletePerson(deletedPid=${Person.pid})}"
+                           class="fa fa-times-circle-o" onclick="return deleteConfirm()"/></td>
                 </tr>
                 </tbody>
             </table>
