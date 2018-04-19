@@ -21,13 +21,13 @@
             VALUE (#{aname});
     </insert>
 
-    <select id="selectAdminByName" parameterType="String" resultMap="AdminResultMap">
+    <select id="selectAdminById" parameterType="Long" resultMap="AdminResultMap">
             SELECT
                 *
             FROM
                 Admin
             WHERE
-                aname = #{aname}
+                aid = #{aid}
     </select>
 
     <update id="updatePasswordById">

@@ -4,7 +4,9 @@ import dao.adminDao;
 import entity.Admin;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AdminService {
 
     @Autowired
@@ -15,8 +17,8 @@ public class AdminService {
         adminDao.insertAdmin(aname,password);
     }
 
-    public Admin selectAdminByName(String aname){
-        return adminDao.selectAdminByName(aname);
+    public Admin selectAdminById(Long id){
+        return adminDao.selectAdminById(id);
     }
 
     public void updatePasswordById(Long aid,String password){
@@ -24,7 +26,7 @@ public class AdminService {
         adminDao.updatePasswordById(aid,password);
     }
 
-    public void updateAuthorityById(Long aid,Integer Authority){
+    public void updateAuthorityById(String aid, Long Authority){
         adminDao.updateAuthorityById(aid,Authority);
     }
 

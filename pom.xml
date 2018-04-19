@@ -6,7 +6,7 @@
     <groupId>com.us.parent</groupId>
     <artifactId>UniversalSystem</artifactId>
     <version>1.0</version>
-
+    <packaging>pom</packaging>
     <modules>
         <module>com.us.ac</module>
         <module>com.us.mp</module>
@@ -96,7 +96,6 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>5.1.38</version>
-                <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>c3p0</groupId>

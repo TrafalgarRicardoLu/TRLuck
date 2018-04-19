@@ -7,7 +7,7 @@ public interface adminDao {
 
     void insertAdmin(@Param("aname")String aname,@Param("password") String password);
 
-    Admin selectAdminByName(@Param("aname") String aname);
+    Admin selectAdminById(@Param("aid") Long id);
 
     void updatePasswordById(@Param("aid") Long id,@Param("password")String password);
 

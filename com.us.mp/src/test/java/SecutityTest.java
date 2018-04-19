@@ -4,7 +4,7 @@ import org.mindrot.jbcrypt.BCrypt;
 public class SecutityTest {
     @Test
     public void BCrypt(){
-        String password = "lujianhui1   ";
+        String password = "lujianhui1";
         String hashed = BCrypt.hashpw(password,BCrypt.gensalt());
         String hashed2 = BCrypt.hashpw(password,BCrypt.gensalt(12));
 
