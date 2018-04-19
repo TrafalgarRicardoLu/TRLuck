@@ -23,8 +23,13 @@ public class adminRESTController {
 
     @RequestMapping(value = "/{aid}",method = RequestMethod.PUT)
     public void insertNewAdmin(@PathVariable("aid")Long id,
-                               @Param("authority")String authority){
-        adminService.updateAuthorityById(authority,id);
+                               @Param("authority")String authority,
+                               @Param("password")String password){
+        Admin admin = new Admin();
+        admin.setAid(id);
+        admin.setAuthority(authority);
+        admin.setPassword(password);
+        adminService.updateAdminById(id,admin);
     }
 
     @RequestMapping(value = "/{aid}",method = RequestMethod.DELETE)

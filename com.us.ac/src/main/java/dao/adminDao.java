@@ -11,7 +11,7 @@ public interface adminDao {
 
     void updatePasswordById(@Param("aid") Long id,@Param("password")String password);
 
-    void updateAuthorityById(@Param("aid") Long id,@Param("authority")Integer authority);
+    void updateAuthorityById(@Param("aid") Long id,@Param("authority")String  authority);
 
     void deleteAdminById(@Param("aid")Long id);
 }

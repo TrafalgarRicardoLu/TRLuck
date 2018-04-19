@@ -12,25 +12,28 @@ public class AdminService {
     @Autowired
     adminDao adminDao;
 
-    public void insertAdmin(String aname,String password){
-        password = BCrypt.hashpw(password,BCrypt.gensalt());
-        adminDao.insertAdmin(aname,password);
+    public void insertAdmin(String aname, String password) {
+        password = BCrypt.hashpw(password, BCrypt.gensalt());
+        adminDao.insertAdmin(aname, password);
     }
 
-    public Admin selectAdminById(Long id){
+    public Admin selectAdminById(Long id) {
         return adminDao.selectAdminById(id);
     }
 
-    public void updatePasswordById(Long aid,String password){
-        password = BCrypt.hashpw(password,BCrypt.gensalt());
-        adminDao.updatePasswordById(aid,password);
+    public void updateAdminById(Long aid, Admin admin) {
+        Admin origin = selectAdminById(aid);
+        if (!BCrypt.checkpw(origin.getPassword(), admin.getPassword())) {
+            String password = admin.getPassword();
+            password = BCrypt.hashpw(password, BCrypt.gensalt());
+            adminDao.updatePasswordById(aid, password);
+        }
+        if(!origin.getAuthority().equals(admin.getAuthority())){
+            adminDao.updateAuthorityById(aid,admin.getAuthority());
+        }
     }
 
-    public void updateAuthorityById(String aid, Long Authority){
-        adminDao.updateAuthorityById(aid,Authority);
-    }
-
-    public void deleteAdminById(Long aid){
+    public void deleteAdminById(Long aid) {
         adminDao.deleteAdminById(aid);
     }
 }

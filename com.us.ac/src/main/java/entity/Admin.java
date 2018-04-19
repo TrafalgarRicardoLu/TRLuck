@@ -5,7 +5,7 @@ public class Admin {
     private Long aid;
     private String aname;
     private String password;
-    private Integer Authority;
+    private String  Authority;
 
     public Long getAid() {
         return aid;
@@ -31,11 +31,11 @@ public class Admin {
         this.password = password;
     }
 
-    public Integer getAuthority() {
+    public String getAuthority() {
         return Authority;
     }
 
-    public void setAuthority(Integer authority) {
+    public void setAuthority(String authority) {
         Authority = authority;
     }
 }
