@@ -17,6 +17,7 @@ public class DaoTest {
 
     @Test
     public void AdminDaoTest() {
+        adminDao.selectAdmins();
     }
 
 }

@@ -2,6 +2,8 @@ package controller;
 
 import entity.Admin;
 import org.apache.ibatis.annotations.Param;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,12 +11,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import service.AdminService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/admin")
 public class adminRESTController {
 
+    private static Logger logger = LoggerFactory.getLogger(adminRESTController.class);
+
     @Autowired
     AdminService adminService;
+
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public List<Admin> selectAdmins(){
+        return adminService.selectAdmins();
+    }
+
 
     @RequestMapping(value = "/{aid}",method = RequestMethod.GET)
     public Admin selectAdminById(@PathVariable("aid")Long id){

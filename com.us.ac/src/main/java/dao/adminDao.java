@@ -3,9 +3,13 @@ package dao;
 import entity.Admin;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface adminDao {
 
     void insertAdmin(@Param("aname")String aname,@Param("password") String password);
+
+    List<Admin> selectAdmins();
 
     Admin selectAdminById(@Param("aid") Long id);
 

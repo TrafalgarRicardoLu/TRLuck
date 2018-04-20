@@ -6,6 +6,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AdminService {
 
@@ -17,9 +19,14 @@ public class AdminService {
         adminDao.insertAdmin(aname, password);
     }
 
+    public List<Admin> selectAdmins(){
+        return adminDao.selectAdmins();
+    }
+
     public Admin selectAdminById(Long id) {
         return adminDao.selectAdminById(id);
     }
+
 
     public void updateAdminById(Long aid, Admin admin) {
         Admin origin = selectAdminById(aid);

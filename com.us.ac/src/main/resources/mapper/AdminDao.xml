@@ -21,6 +21,13 @@
             VALUE (#{aname});
     </insert>
 
+    <select id="selectAdmins" resultMap="AdminResultMap">
+        SELECT
+            *
+        FROM
+            Admin
+    </select>
+
     <select id="selectAdminById" parameterType="Long" resultMap="AdminResultMap">
             SELECT
                 *
