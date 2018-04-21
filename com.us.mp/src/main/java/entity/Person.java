@@ -1,6 +1,9 @@
 package entity;
 
 
+/**
+ * @author trafalgar
+ */
 public class Person {
 
     private Long pid;

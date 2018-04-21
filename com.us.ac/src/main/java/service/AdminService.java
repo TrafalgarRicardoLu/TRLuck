@@ -1,6 +1,6 @@
 package service;
 
-import dao.adminDao;
+import dao.AdminDao;
 import entity.Admin;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,19 +8,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author trafalgar
+ */
 @Service
 public class AdminService {
 
     @Autowired
-    adminDao adminDao;
+    private AdminDao adminDao;
 
     public void insertAdmin(String aname, String password) {
         password = BCrypt.hashpw(password, BCrypt.gensalt());
         adminDao.insertAdmin(aname, password);
     }
 
-    public List<Admin> selectAdmins(){
-        return adminDao.selectAdmins();
+    public List<Admin> listAdmin(){
+        return adminDao.listAdmin();
     }
 
     public Admin selectAdminById(Long id) {

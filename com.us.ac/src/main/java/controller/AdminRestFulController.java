@@ -13,18 +13,21 @@ import service.AdminService;
 
 import java.util.List;
 
+/**
+ * @author trafalgar
+ */
 @RestController
 @RequestMapping(value = "/admin")
-public class adminRESTController {
+public class AdminRestFulController {
 
-    private static Logger logger = LoggerFactory.getLogger(adminRESTController.class);
+    private static Logger logger = LoggerFactory.getLogger(AdminRestFulController.class);
 
     @Autowired
     AdminService adminService;
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public List<Admin> selectAdmins(){
-        return adminService.selectAdmins();
+        return adminService.listAdmin();
     }
 
 

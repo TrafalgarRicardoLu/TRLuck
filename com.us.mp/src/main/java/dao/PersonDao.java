@@ -6,9 +6,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface personDao {
+/**
+ * @author trafalgar
+ */
+public interface PersonDao {
 
-    List<Person> selectAllPerson();
+    List<Person> listPerson();
 
     Person selectPersonById(Long id);
 

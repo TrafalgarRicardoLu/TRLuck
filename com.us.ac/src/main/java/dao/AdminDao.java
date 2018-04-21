@@ -5,11 +5,15 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface adminDao {
+/**
+ * @author trafalgar
+ */
+public interface AdminDao {
+
 
     void insertAdmin(@Param("aname")String aname,@Param("password") String password);
 
-    List<Admin> selectAdmins();
+    List<Admin> listAdmin();
 
     Admin selectAdminById(@Param("aid") Long id);
 

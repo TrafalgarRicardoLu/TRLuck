@@ -13,6 +13,9 @@ import service.PersonService;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author trafalgar
+ */
 @Controller
 public class PersonController {
 
@@ -22,40 +25,31 @@ public class PersonController {
     PersonService personService;
 
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String index(){
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index() {
         return "redirect:index.html";
     }
 
-    @RequestMapping(value = "/showAllPeople",method = RequestMethod.GET)
-    public String showAllPeople(Map<String,Object> map){
-        List<Person> people = personService.selectAllPerson();
-        map.put("People",people);
+    @RequestMapping(value = "/showAllPeople", method = RequestMethod.GET)
+    public String showAllPeople(Map<String, Object> map) {
+        List<Person> people = personService.listPerson();
+        map.put("People", people);
         return "showAllPeople";
     }
 
-    @RequestMapping(value = "/addPerson",method = RequestMethod.POST)
-    public String addNewPerson(@RequestParam(value = "pname")String pname,
-                               @RequestParam(value = "sex")String sex,
-                               @RequestParam(value = "department")String department,
-                               @RequestParam(value = "year")String year,
-                               @RequestParam(value = "month")String month,
-                               @RequestParam(value = "day")String day){
-        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
-        Integer month_int;
-        for(month_int=0;month_int<months.length;month_int++){
-            if (month.equals(months[month_int])){
-                break;
-            }
-        }
-        month_int++;
-        String birth = year+'-'+month_int.toString()+'-'+day;
-        personService.insertNewPerson(pname,sex,birth,department);
+    @RequestMapping(value = "/addPerson", method = RequestMethod.POST)
+    public String insertNewPerson(@RequestParam(value = "pname") String pname,
+                               @RequestParam(value = "sex") String sex,
+                               @RequestParam(value = "year") String year,
+                               @RequestParam(value = "month") String month,
+                               @RequestParam(value = "day") String day,
+                               @RequestParam(value = "department") String department) {
+        personService.insertNewPerson(pname, sex, year, month, day, department);
         return "redirect:showAllPeople";
     }
 
-    @RequestMapping(value = "/deletePerson",method = RequestMethod.GET)
-    public String deletePerson(@RequestParam(value = "deletedPid")String pid){
+    @RequestMapping(value = "/deletePerson", method = RequestMethod.GET)
+    public String deletePerson(@RequestParam(value = "deletedPid") String pid) {
         personService.deletePersonById(Long.valueOf(pid));
         return "redirect:showAllPeople";
     }

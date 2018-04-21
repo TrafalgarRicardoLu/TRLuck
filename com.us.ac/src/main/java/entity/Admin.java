@@ -1,11 +1,14 @@
 package entity;
 
+/**
+ * @author trafalgar
+ */
 public class Admin {
 
     private Long aid;
     private String aname;
     private String password;
-    private String  Authority;
+    private String  authority;
 
     public Long getAid() {
         return aid;
@@ -32,10 +35,10 @@ public class Admin {
     }
 
     public String getAuthority() {
-        return Authority;
+        return authority;
     }
 
     public void setAuthority(String authority) {
-        Authority = authority;
+        authority = authority;
     }
 }

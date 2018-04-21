@@ -1,30 +1,42 @@
 package service;
 
-import dao.personDao;
+import dao.PersonDao;
 import entity.Person;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.enums.MONTH;
 
-import java.util.Date;
 import java.util.List;
 
+/**
+ * @author trafalgar
+ */
 @Service
 public class PersonService {
 
     @Autowired
-    personDao personDao;
+    PersonDao personDao;
 
-    public List<Person> selectAllPerson() {
-        return personDao.selectAllPerson();
+    public List<Person> listPerson() {
+        return personDao.listPerson();
     }
 
     public Person selectPersonById(Long id) {
         return personDao.selectPersonById(id);
     }
 
-    public void insertNewPerson(String name, String sex,String birth, String depaertment) {
-
+    public void insertNewPerson(String name, String sex,String year,String month,String day, String depaertment) {
+        MONTH[] months = MONTH.values();
+        int monthIndex =0;
+        for(MONTH currentMonth:months){
+            if(currentMonth.toString().equals(month)){
+                monthIndex=currentMonth.getMonthIndex();
+                break;
+            }
+        }
+        System.out.println(monthIndex);
+        String birth = year + '-' +monthIndex+ '-' + day;
         personDao.insertNewPerson(name, sex, birth, depaertment);
     }
     public void updatePerson(Person person){

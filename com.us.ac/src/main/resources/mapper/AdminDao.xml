@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="dao.adminDao">
+<mapper namespace="dao.AdminDao">
     <resultMap id="AdminResultMap" type="entity.Admin">
         <id property="aid" column="aid"/>
         <result property="aname" column="aname"/>
@@ -21,7 +21,7 @@
             VALUE (#{aname});
     </insert>
 
-    <select id="selectAdmins" resultMap="AdminResultMap">
+    <select id="listAdmin" resultMap="AdminResultMap">
         SELECT
             *
         FROM

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="dao.personDao">
+<mapper namespace="dao.PersonDao">
     <resultMap id="PersonResultMap" type="entity.Person">
         <id property="pid" column="pid"/>
         <result property="pname" column="pname"/>
@@ -11,7 +11,7 @@
         <result property="department" column="department"/>
     </resultMap>
 
-    <select id="selectAllPerson" resultMap="PersonResultMap">
+    <select id="listPerson" resultMap="PersonResultMap">
         SELECT
               *
         FROM

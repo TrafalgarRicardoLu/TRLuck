@@ -1,4 +1,4 @@
-import dao.adminDao;
+import dao.AdminDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,12 @@ import java.util.List;
 public class DaoTest {
 
     @Autowired
-    private adminDao adminDao;
+    private AdminDao adminDao;
 
 
     @Test
     public void AdminDaoTest() {
-        adminDao.selectAdmins();
+        adminDao.listAdmin();
     }
 
 }
