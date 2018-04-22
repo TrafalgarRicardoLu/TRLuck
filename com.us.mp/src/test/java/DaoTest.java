@@ -15,7 +15,7 @@ public class DaoTest {
 
     @Test
     public void personDAOTest() {
-        System.out.println(MONTH.valueOf("Jan"));
+        personDao.insertNewPerson("ad","male","1998-01-01","Tech");
     }
 
 
