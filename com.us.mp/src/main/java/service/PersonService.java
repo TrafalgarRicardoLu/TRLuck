@@ -35,7 +35,6 @@ public class PersonService {
                 break;
             }
         }
-        System.out.println(monthIndex);
         String birth = year + '-' +monthIndex+ '-' + day;
         personDao.insertNewPerson(name, sex, birth, depaertment);
     }

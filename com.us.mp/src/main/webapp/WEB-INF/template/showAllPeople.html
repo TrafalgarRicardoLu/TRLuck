@@ -84,56 +84,71 @@
 
 <script>
     $('#PersonTable').bootstrapTable({
-            url: "http://localhost:8080/person/",
-            pagination: true,
-            pageNumber: 1,
-            pageSize: 10,
-            showRefresh: true,
-            search: true,
-            clickToSelect: true,
-            editable: true,
-            columns: [{
-                checkbox: true
-            }, {
-                field: "pid",
-                title: "ID",
-                align: 'center'
-            }, {
-                field: "pname",
-                title: "Name",
-                align: 'center',
-                editable: {
-                    type: 'text',
-                    title: 'Name',
-                    validate: function (v) {
-                        if (!v) return 'Can not be null';
-                    }
+        url: "http://localhost:8080/person/",
+        pagination: true,
+        pageNumber: 1,
+        pageSize: 10,
+        showRefresh: true,
+        search: true,
+        clickToSelect: true,
+        editable: true,
+        idField:"pid",
+        columns: [{
+            checkbox: true
+        }, {
+            field: "pid",
+            title: "ID",
+            align: 'center'
+        }, {
+            field: "pname",
+            title: "Name",
+            align: 'center',
+            editable: {
+                type: 'text',
+                title: 'Name',
+                validate: function (v) {
+                    if (!v) return 'Can not be null';
                 }
-            }, {
-                field: "sex",
-                title: "Sex",
-                align: 'center'
-            }, {
-                field: "birth",
-                title: "Birthday",
-                align: 'center'
-            }, {
-                field: "department",
-                title: "Depart",
-                align: 'center'
-            }, {
-                title: "Operations",
-                formatter: operateFormatter
-            }]
+            }
+        }, {
+            field: "sex",
+            title: "Sex",
+            align: 'center'
+        }, {
+            field: "birth",
+            title: "Birthday",
+            align: 'center'
+        }, {
+            field: "department",
+            title: "Depart",
+            align: 'center'
+        }, {
+            title: "Operations",
+            events: operateEvents,
+            formatter: operateFormatter
+        }]
 
-        });
+    });
 
-        function operateFormatter(value, row, index) {
+    function operateFormatter(value, row, index) {
+        var pid = [row.pid];
+        var Url ='<a id="Remove" class="fa fa-times-circle-o" href="http://localhost:8080/deletePerson?deletedPid='+pid+'"onclick="return deleteConfirm()" title="Remove">';
         return [
-            '<a id="Remove" class="fa fa-times-circle-o" href="http://localhost:8080/deletePerson?deletedPid" onclick="return deleteConfirm()" title="Remove">',
+            Url,
             '</a>'
         ].join('');
-        }
+    }
+
+    function operateEvents() {
+        window.operateEvents = {
+            'click .remove': function (e, value, row, index) {
+                $("#PersonTable").bootstrapTable('remove', {
+                    field: 'pid',
+                    values: [row.id]
+                });
+            }
+        };
+    }
 
 
 </script>
