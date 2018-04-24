@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,7 @@
     <script src="../../assets/bootstrap/js/bootstrap-table.js"></script>
     <script src="../../assets/bootstrap/js/bootstrap-editable.js"></script>
     <script src="../../assets/bootstrap/js/bootstrap-table-editable.js"></script>
+    <script src="../../assets/bootstrap/js/bootstrap-table-zh-CN.js"></script>
     <script>
         function deleteConfirm() {
             var c = confirm("Are you sure to delete the person?");
@@ -83,74 +84,116 @@
 
 
 <script>
-    $('#PersonTable').bootstrapTable({
-        url: "http://localhost:8080/person/",
-        pagination: true,
-        pageNumber: 1,
-        pageSize: 10,
-        showRefresh: true,
-        search: true,
-        clickToSelect: true,
-        editable: true,
-        idField:"pid",
-        columns: [{
-            checkbox: true
-        }, {
-            field: "pid",
-            title: "ID",
-            align: 'center'
-        }, {
-            field: "pname",
-            title: "Name",
-            align: 'center',
-            editable: {
-                type: 'text',
-                title: 'Name',
-                validate: function (v) {
-                    if (!v) return 'Can not be null';
+    $(function () {
+        $('#PersonTable').bootstrapTable({
+            url: "http://localhost:8080/person/",
+            pagination: true,
+            pageNumber: 1,
+            pageSize: 10,
+            showRefresh: true,
+            search: true,
+            clickToSelect: true,
+            editable: true,
+            queryParams: function (param) {
+                return {};
+            },
+            idField: "pid",
+            columns: [{
+                checkbox: true
+            }, {
+                field: "pid",
+                title: "ID",
+                align: 'center'
+            }, {
+                field: "pname",
+                title: "Name",
+                align: 'center',
+                editable: {
+                    type: 'text',
+                    title: 'Name',
+                    validate: function (v) {
+                        if (!v) return 'Can not be null';
+                    }
                 }
-            }
-        }, {
-            field: "sex",
-            title: "Sex",
-            align: 'center'
-        }, {
-            field: "birth",
-            title: "Birthday",
-            align: 'center'
-        }, {
-            field: "department",
-            title: "Depart",
-            align: 'center'
-        }, {
-            title: "Operations",
-            events: operateEvents,
-            formatter: operateFormatter
-        }]
+            }, {
+                field: "sex",
+                title: "Sex",
+                align: 'center'
+            }, {
+                field: "birth",
+                title: "Birthday",
+                align: 'center',
+                editable: {
+                    type: 'text',
+                    title: 'Birthday',
+                    validate: function (v) {
+                        if (!v) return 'Can not be null';
+                    }
+                }
+            }, {
+                field: "department",
+                title: "Depart",
+                align: 'center',
+                editable: {
+                    type: 'text',
+                    title: 'Depart',
+                    validate: function (v) {
+                        if (!v) return 'Can not be null';
+                    }
+                }
+            }, {
+                title: "Operations",
+                events: operateEvents,
+                formatter: operateFormatter
+            }],
+            onEditableSave: function (field, row, oldValue, $el) {
+                var pid = [row.pid];
+                var url = "http://localhost:8080/person/" + pid;
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: JSON.stringify(row),
+                    contentType: 'application/json;charset=utf-8',
+                    traditional: true,
+                    dataType: 'json',
+                    success: function (data, status) {
+                        if (status == "success") {
+                            alert('提交数据成功');
+                        }
+                    },
+                    error: function () {
+                        alert('fail');
+                    },
+                    complete: function () {
 
-    });
-
-    function operateFormatter(value, row, index) {
-        var pid = [row.pid];
-        var Url ='<a id="Remove" class="fa fa-times-circle-o" href="http://localhost:8080/deletePerson?deletedPid='+pid+'"onclick="return deleteConfirm()" title="Remove">';
-        return [
-            Url,
-            '</a>'
-        ].join('');
-    }
-
-    function operateEvents() {
-        window.operateEvents = {
-            'click .remove': function (e, value, row, index) {
-                $("#PersonTable").bootstrapTable('remove', {
-                    field: 'pid',
-                    values: [row.id]
+                    }
                 });
             }
-        };
-    }
+
+        });
+
+        function operateFormatter(value, row, index) {
+            var pid = [row.pid];
+            var Url = '<a id="Remove" class="fa fa-times-circle-o" href="http://localhost:8080/deletePerson?deletedPid=' + pid + '"onclick="return deleteConfirm()" title="Remove">';
+            return [
+                Url,
+                '</a>'
+            ].join('');
+        }
+
+        function operateEvents() {
+            window.operateEvents = {
+                'click .remove': function (e, value, row, index) {
+                    $("#PersonTable").bootstrapTable('remove', {
+                        field: 'pid',
+                        values: [row.id]
+                    });
+                }
+            };
+        }
 
 
+    })
 </script>
 <script type="text/javascript">
     $(document).ready(function () {

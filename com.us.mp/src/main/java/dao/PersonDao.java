@@ -24,5 +24,5 @@ public interface PersonDao {
 
     void updateDepartmentById(@Param("department")String department,@Param("pid")Long id);
 
-
+    void updatePnameById(@Param("pname")String pname,@Param("pid")Long id);
 }

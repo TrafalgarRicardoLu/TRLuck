@@ -16,7 +16,7 @@
     <!--Spring Security-->
 
     <sec:http pattern="/person/**" security="none"/>
-    <sec:http pattern="/assests/**" security="none"/>
+    <sec:http pattern="/assets/**" security="none"/>
     <sec:http pattern="/login.html" security="none"/>
     <sec:http pattern="/login_failure.html" security="none"/>
 

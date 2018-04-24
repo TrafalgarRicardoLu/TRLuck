@@ -39,17 +39,13 @@ public class PersonRestFulController {
 
 
     @RequestMapping(value = "/{pid}", method = RequestMethod.PUT)
-    public void createNewPerson(@RequestParam(value = "pname") String pname,
-                                @RequestParam(value = "sex") String sex,
-                                @RequestParam(value = "year") String year,
-                                @RequestParam(value = "month") String month,
-                                @RequestParam(value = "day") String day,
-                                @RequestParam(value = "department") String department) {
-        personService.insertNewPerson(pname,sex,year,month,day,department);
+    public void createNewPerson(@RequestBody Person person) {
+        personService.insertNewPerson(person);
     }
 
-    @RequestMapping(value = "/{pid}", method = RequestMethod.POST)
-    public void updatePersonById(@RequestBody Person person) {
+    @RequestMapping(value = "/{pid}",method = RequestMethod.POST)
+    public @ResponseBody Person updatePersonById(@RequestBody Person person) {
         personService.updatePerson(person);
+        return personService.selectPersonById(person.getPid());
     }
 }

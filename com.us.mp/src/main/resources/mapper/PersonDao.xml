@@ -60,4 +60,12 @@
         WHERE
             pid = #{pid}
     </update>
+     <update id="updatePnameById">
+        UPDATE
+            Person
+        SET
+            Pname = #{pname}
+        WHERE
+            pid = #{pid}
+    </update>
 </mapper>
