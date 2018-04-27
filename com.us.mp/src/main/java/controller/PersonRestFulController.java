@@ -38,12 +38,12 @@ public class PersonRestFulController {
     }
 
 
-    @RequestMapping(value = "/{pid}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{pid}", method = RequestMethod.POST)
     public void createNewPerson(@RequestBody Person person) {
         personService.insertNewPerson(person);
     }
 
-    @RequestMapping(value = "/{pid}",method = RequestMethod.POST)
+    @RequestMapping(value = "/{pid}",method = RequestMethod.PUT)
     public @ResponseBody Person updatePersonById(@RequestBody Person person) {
         personService.updatePerson(person);
         return personService.selectPersonById(person.getPid());

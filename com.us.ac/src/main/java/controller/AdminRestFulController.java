@@ -1,16 +1,15 @@
 package controller;
 
 import entity.Admin;
+import entity.Authority;
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import service.AdminService;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.util.List;
 
 /**
@@ -37,14 +36,9 @@ public class AdminRestFulController {
     }
 
     @RequestMapping(value = "/{aid}",method = RequestMethod.PUT)
-    public void insertNewAdmin(@PathVariable("aid")Long id,
-                               @Param("authority")String authority,
-                               @Param("password")String password){
-        Admin admin = new Admin();
-        admin.setAid(id);
-        admin.setAuthority(authority);
-        admin.setPassword(password);
-        adminService.updateAdminById(id,admin);
+    public @ResponseBody Admin updateAdmin(@RequestBody Admin admin){
+        adminService.updateAdmin(admin);
+        return adminService.selectAdminById(admin.getAid());
     }
 
     @RequestMapping(value = "/{aid}",method = RequestMethod.DELETE)
