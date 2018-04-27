@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Admin;
+import entity.Authority;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface AdminDao {
 
     void updatePasswordById(@Param("aid") Long id,@Param("password")String password);
 
-    void updateAuthorityById(@Param("aid") Long id,@Param("authority")String  authority);
+    void updateAnameById(@Param("aid") Long id,@Param("aname")String aname);
 
     void deleteAdminById(@Param("aid")Long id);
 }

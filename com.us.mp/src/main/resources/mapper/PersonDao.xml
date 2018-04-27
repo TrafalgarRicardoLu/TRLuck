@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.PersonDao">
-    <resultMap id="PersonResultMap" type="entity.Person">
+    <resultMap id="PersonMap" type="entity.Person">
         <id property="pid" column="pid"/>
         <result property="pname" column="pname"/>
         <result property="birth" column="birth"/>
@@ -11,7 +11,7 @@
         <result property="department" column="department"/>
     </resultMap>
 
-    <select id="listPerson" resultMap="PersonResultMap">
+    <select id="listPerson" resultMap="PersonMap">
         SELECT
               *
         FROM
@@ -19,7 +19,7 @@
 
     </select>
 
-    <select id="selectPersonById"  resultMap="PersonResultMap" parameterType="Long">
+    <select id="selectPersonById"  resultMap="PersonMap" parameterType="Long">
             SELECT
                 *
             FROM

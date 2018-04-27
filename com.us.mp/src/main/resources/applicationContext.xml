@@ -43,7 +43,7 @@
     </sec:authentication-manager>
 
 
-    <context:component-scan base-package="entity,controller,service">
+    <context:component-scan base-package="entity,controller,service,utils">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 

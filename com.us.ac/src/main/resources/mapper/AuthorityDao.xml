@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.AuthorityDao">
+    <resultMap id="AuthorityMap" type="entity.Authority">
+            <id property="arid" column="arid"/>
+            <result property="aname" column="aname"/>
+            <result property="isEnabled" column="enabled"/>
+            <result property="role" column="role"/>
+    </resultMap>
+
+    <select id="listAuthority" resultMap="AuthorityMap">
+        SELECT
+            *
+        FROM
+            Admin_Role
+    </select>
+
+    <select id="selectAuthorityById" resultMap="AuthorityMap">
+        SELECT
+            *
+        FROM
+            Admin_Role
+        WHERE
+            arid = #{arid}
+    </select>
+
+    <update id="updateEnableById">
+        UPDATE
+            Admin_Role
+        SET
+            enabled = #{enabled}
+        WHERE
+            arid = #{arid}
+    </update>
+
+    <update id="updateRoleById">
+        UPDATE
+            Admin_Role
+        SET
+            role = #{role}
+        WHERE
+            arid = #{arid}
+    </update>
+
+</mapper>

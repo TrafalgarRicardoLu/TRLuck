@@ -3,11 +3,23 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.AdminDao">
-    <resultMap id="AdminResultMap" type="entity.Admin">
+    <resultMap id="AdminMap" type="entity.Admin">
         <id property="aid" column="aid"/>
         <result property="aname" column="aname"/>
         <result property="password" column="password"/>
-        <result property="authority" column="authority"/>
+        <association property="authority" javaType="entity.Authority">
+            <id property="arid" column="arid"/>
+            <result property="aname" column="aname"/>
+            <result property="enabled" column="enabled"/>
+            <result property="role" column="role"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="AuthorityMap" type="entity.Authority">
+        <id property="arid" column="arid"/>
+        <result property="aname" column="aname"/>
+        <result property="isEnabled" column="enabled"/>
+        <result property="role" column="role"/>
     </resultMap>
 
     <insert id="insertAdmin" useGeneratedKeys="true" keyProperty="aid">
@@ -21,14 +33,16 @@
             VALUE (#{aname});
     </insert>
 
-    <select id="listAdmin" resultMap="AdminResultMap">
-        SELECT
-            *
-        FROM
-            Admin
+    <select id="listAdmin" resultMap="AdminMap">
+            SELECT
+                A.*,AR.*
+            from
+                Admin as A, Admin_Role as AR
+            where
+                A.aname = AR.aname
     </select>
 
-    <select id="selectAdminById" parameterType="Long" resultMap="AdminResultMap">
+    <select id="selectAdminById" parameterType="Long" resultMap="AdminMap">
             SELECT
                 *
             FROM
@@ -46,11 +60,11 @@
                 aid = #{aid}
     </update>
 
-    <update id="updateAuthorityById">
+    <update id="updateAnameById">
             UPDATE
                 Admin
             SET
-                authority = #{authority}
+                aname = #{aname}
             WHERE
                 aid = #{aid}
     </update>

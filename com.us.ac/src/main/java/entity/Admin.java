@@ -8,7 +8,7 @@ public class Admin {
     private Long aid;
     private String aname;
     private String password;
-    private String  authority;
+    private Authority  authority;
 
     public Long getAid() {
         return aid;
@@ -34,11 +34,11 @@ public class Admin {
         this.password = password;
     }
 
-    public String getAuthority() {
+    public Authority getAuthority() {
         return authority;
     }
 
-    public void setAuthority(String authority) {
-        authority = authority;
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
     }
 }

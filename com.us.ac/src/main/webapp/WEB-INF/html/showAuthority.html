@@ -1,0 +1,191 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 3</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap-table.css">
+    <link rel="stylesheet"
+          href="//rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../../assets/main/css/style.css">
+    <link rel="stylesheet" href="../../assets/font-awesome/css/font-awesome.min.css">
+    <!-- jQuery  -->
+    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap Js  -->
+    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../assets/bootstrap/js/bootstrap-table.js"></script>
+    <script src="../../assets/bootstrap/js/bootstrap-editable.js"></script>
+    <script src="../../assets/bootstrap/js/bootstrap-table-editable.js"></script>
+    <script src="../../assets/bootstrap/js/bootstrap-table-zh-CN.js"></script>
+    <script>
+        function deleteConfirm() {
+            var c = confirm("Are you sure to delete the person?");
+            if (c == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Universal System</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Person</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li><a href="showAllPeople.html">Show All Person</a></li>
+                    <li><a href="addNewPerson.html">Add Person</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                        <i></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="article">
+            <div id="toolbar">
+                <button id="remove" class="btn btn-danger" disabled>
+                    <i class="glyphicon glyphicon-remove"></i> Delete
+                </button>
+            </div>
+            <table id="AdminTable"
+                   data-toolbar="#toolbar"></table>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        $('#AdminTable').bootstrapTable({
+            url: "http://localhost:8080/admin/",
+            pagination: true,
+            pageNumber: 1,
+            pageSize: 10,
+            showRefresh: true,
+            search: true,
+            clickToSelect: true,
+            editable: true,
+            queryParams: function (param) {
+                return {};
+            },
+            idField: "aid",
+            columns: [{
+                checkbox: true
+            }, {
+                field: "aid",
+                title: "ID",
+                align: 'center'
+            }, {
+                field: "aname",
+                title: "Name",
+                align: 'center',
+                editable: {
+                    type: 'text',
+                    title: 'Name',
+                    validate: function (v) {
+                        if (!v) return 'Can not be null';
+                    }
+                }
+            }, {
+                field: "authority.role",
+                title: "Role",
+                align: 'center',
+                editable: {
+                    type: 'text',
+                    title: 'Role',
+                    validate: function (v) {
+                        if (!v) return 'Can not be null';
+                    }
+                }
+            }, {
+                title: "Operations",
+                events: operateEvents,
+                formatter: operateFormatter
+            }],
+            onEditableSave: function (field, row, oldValue, $el) {
+                var aid = [row.aid];
+                var url = "http://localhost:8080/admin/" + aid;
+                $.ajax({
+                    type: "PUT",
+                    url: url,
+                    data: JSON.stringify(row),
+                    contentType: 'application/json;charset=utf-8',
+                    traditional: true,
+                    dataType: 'json',
+                    success: function (data, status) {
+                        if (status == "success") {
+                            alert('提交数据成功');
+                        }
+                    },
+                    error: function () {
+                        alert('fail');
+                    },
+                    complete: function () {
+
+                    }
+                });
+            }
+
+        });
+
+        function operateFormatter(value, row, index) {
+            var aid = [row.aid];
+            var Url = '<a id="Remove" methods="delete" class="fa fa-times-circle-o" href="http://localhost:8080/admin?aid=' + aid + '"onclick="return deleteConfirm()" title="Remove">';
+            return [
+                Url,
+                '</a>'
+            ].join('');
+        }
+
+        function operateEvents() {
+            window.operateEvents = {
+                'click .remove': function (e, value, row, index) {
+                    $("#PersonTable").bootstrapTable('remove', {
+                        field: 'pid',
+                        values: [row.id]
+                    });
+                }
+            };
+        }
+
+
+    })
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+</script>
+</body>
+</html>

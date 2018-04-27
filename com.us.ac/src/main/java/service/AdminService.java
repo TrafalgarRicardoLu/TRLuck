@@ -31,15 +31,15 @@ public class AdminService {
     }
 
 
-    public void updateAdminById(Long aid, Admin admin) {
-        Admin origin = selectAdminById(aid);
+    public void updateAdmin(Admin admin) {
+        Admin origin = selectAdminById(admin.getAid());
         if (!BCrypt.checkpw(origin.getPassword(), admin.getPassword())) {
             String password = admin.getPassword();
             password = BCrypt.hashpw(password, BCrypt.gensalt());
-            adminDao.updatePasswordById(aid, password);
+            adminDao.updatePasswordById(admin.getAid(), password);
         }
-        if(!origin.getAuthority().equals(admin.getAuthority())){
-            adminDao.updateAuthorityById(aid,admin.getAuthority());
+        if(!origin.getAname().equals(admin.getAname())){
+            adminDao.updateAnameById(admin.getAid(),admin.getAname());
         }
     }
 

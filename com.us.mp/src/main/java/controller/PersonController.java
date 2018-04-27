@@ -30,12 +30,6 @@ public class PersonController {
         return "redirect:index.html";
     }
 
-    @RequestMapping(value = "/showAllPeople", method = RequestMethod.GET)
-    public String showAllPeople(Map<String, Object> map) {
-        List<Person> people = personService.listPerson();
-        map.put("People", people);
-        return "showAllPeople";
-    }
 
     @RequestMapping(value = "/addPerson", method = RequestMethod.POST)
     public String insertNewPerson(@RequestParam(value = "pname") String pname,
@@ -45,13 +39,13 @@ public class PersonController {
                                @RequestParam(value = "day") String day,
                                @RequestParam(value = "department") String department) {
         personService.insertNewPerson(pname, sex, year, month, day, department);
-        return "redirect:showAllPeople";
+        return "redirect:showPeople.html";
     }
 
     @RequestMapping(value = "/deletePerson", method = RequestMethod.GET)
     public String deletePerson(@RequestParam(value = "deletedPid") String pid) {
         personService.deletePersonById(Long.valueOf(pid));
-        return "redirect:showAllPeople";
+        return "redirect:showPeople.html";
     }
 
 
