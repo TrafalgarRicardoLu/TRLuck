@@ -30,6 +30,16 @@ public class PersonController {
         return "redirect:index.html";
     }
 
+    @RequestMapping(value="/addNewPerson",method = RequestMethod.GET)
+    public String addNewPerson(){
+        return "addNewPerson.html";
+    }
+
+    @RequestMapping(value = "showPeople",method = RequestMethod.GET)
+    public String showAllPeople(){
+        return "showPeople.html";
+    }
+
 
     @RequestMapping(value = "/addPerson", method = RequestMethod.POST)
     public String insertNewPerson(@RequestParam(value = "pname") String pname,
