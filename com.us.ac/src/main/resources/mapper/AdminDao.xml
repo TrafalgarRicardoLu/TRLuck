@@ -44,11 +44,13 @@
 
     <select id="selectAdminById" parameterType="Long" resultMap="AdminMap">
             SELECT
-                *
+                A.*,AR.*
             FROM
-                Admin
+                Admin as A, Admin_Role as AR
             WHERE
-                aid = #{aid}
+                A.aname = AR.aname
+            AND
+                A.aid = #{aid}
     </select>
 
     <update id="updatePasswordById">

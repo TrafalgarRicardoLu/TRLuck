@@ -1,6 +1,7 @@
 package service;
 
 import dao.AdminDao;
+import dao.AuthorityDao;
 import entity.Admin;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,15 @@ public class AdminService {
     @Autowired
     private AdminDao adminDao;
 
+    @Autowired
+    private AuthorityDao authorityDao;
+
     public void insertAdmin(String aname, String password) {
         password = BCrypt.hashpw(password, BCrypt.gensalt());
         adminDao.insertAdmin(aname, password);
     }
 
-    public List<Admin> listAdmin(){
+    public List<Admin> listAdmin() {
         return adminDao.listAdmin();
     }
 
@@ -38,8 +42,12 @@ public class AdminService {
             password = BCrypt.hashpw(password, BCrypt.gensalt());
             adminDao.updatePasswordById(admin.getAid(), password);
         }
-        if(!origin.getAname().equals(admin.getAname())){
-            adminDao.updateAnameById(admin.getAid(),admin.getAname());
+        if (!origin.getAname().equals(admin.getAname())) {
+            adminDao.updateAnameById(admin.getAid(), admin.getAname());
+        }
+        System.out.println(admin.getAuthority().getRole());
+        if (!origin.getAuthority().getRole().equals(admin.getAuthority().getRole())) {
+            authorityDao.updateRoleByAname(admin.getAname(),admin.getAuthority().getRole());
         }
     }
 

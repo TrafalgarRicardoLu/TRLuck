@@ -18,4 +18,5 @@ public interface AuthorityDao {
 
     void updateRoleById(@Param("arid")Long arid,@Param("role")String role);
 
+    void updateRoleByAname(@Param("aname")String aname,@Param("role")String role);
 }
