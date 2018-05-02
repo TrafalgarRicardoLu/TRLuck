@@ -11,24 +11,17 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd
       ">
 
-    <mvc:annotation-driven>
-        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-            <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-
-        </mvc:message-converters>
-    </mvc:annotation-driven>
+    <mvc:annotation-driven/>
     <context:component-scan base-package="controller"/>
     <mvc:default-servlet-handler/>
 
 
-    <mvc:resources location="/WEB-INF/html/" mapping="/**/*.html"/>
+    <mvc:resources location="http://localhost/us/html/" mapping="/**/*.html"/>
 
     <bean id="templateResolver"
           class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
         <constructor-arg ref="servletContext"/>
-        <property name="prefix" value="/WEB-INF/template/"/>
+        <property name="prefix" value="http://localhost/template/"/>
         <property name="suffix" value=".html"/>
         <property name="templateMode" value="HTML5"/>
     </bean>

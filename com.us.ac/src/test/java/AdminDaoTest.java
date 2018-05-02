@@ -20,8 +20,7 @@ public class AdminDaoTest {
     @Test
     public void AdminDaoTest() {
 
-        adminDao.updateAnameById((long) 1,"trafalgar");
-        System.out.println(adminDao.selectAdminById((long) 1).getAname());
+        adminDao.updatePasswordById((long) 3,BCrypt.hashpw("lujianhui",BCrypt.gensalt()));
 
     }
 

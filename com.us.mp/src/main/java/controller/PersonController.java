@@ -35,7 +35,7 @@ public class PersonController {
         return "addNewPerson.html";
     }
 
-    @RequestMapping(value = "showPeople",method = RequestMethod.GET)
+    @RequestMapping(value = "/showPeople",method = RequestMethod.GET)
     public String showAllPeople(){
         return "showPeople.html";
     }

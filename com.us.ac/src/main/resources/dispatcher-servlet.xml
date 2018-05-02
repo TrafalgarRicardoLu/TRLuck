@@ -16,12 +16,12 @@
     <mvc:default-servlet-handler/>
 
 
-    <mvc:resources location="/WEB-INF/html/" mapping="/**/*.html"/>
+    <mvc:resources location="http://localhost/us/html/" mapping="/**/*.html"/>
 
     <bean id="templateResolver"
           class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
         <constructor-arg ref="servletContext"/>
-        <property name="prefix" value="/WEB-INF/template/" />
+        <property name="prefix" value="http://localhost/template/" />
         <property name="suffix" value=".html" />
         <property name="templateMode" value="HTML5" />
     </bean>
