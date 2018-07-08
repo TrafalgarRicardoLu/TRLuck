@@ -3,16 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.us.parent</groupId>
-        <artifactId>UniversalSystem</artifactId>
+        <groupId>com.trluck.parent</groupId>
+        <artifactId>TRLuck</artifactId>
         <version>1.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.us.mp</groupId>
-    <artifactId>ManagePeople</artifactId>
+    <groupId>com.trluck.ac</groupId>
+    <artifactId>AuthorityControl</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
+
+    <developers>
+        <developer>
+            <name>TrafalgarRicardoLu</name>
+            <email>trafalgarricardolu@gmail.com</email>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
 
     <build>
         <plugins>
@@ -26,14 +34,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <developers>
-        <developer>
-            <name>TrafalgarRicardoLu</name>
-            <email>trafalgarricardolu@gmail.com</email>
-            <timezone>+8</timezone>
-        </developer>
-    </developers>
 
     <dependencies>
         <!--Servlet API-->
