@@ -82,7 +82,7 @@ function deleteConfirm() {
 $(function () {
     $(function () {
         $('#PersonTable').bootstrapTable({
-            url: "http://localhost:8080/person/",
+            url: "http://localhost/person/",
             pagination: true,
             pageNumber: 1,
             pageSize: 10,
@@ -144,7 +144,7 @@ $(function () {
             }],
             onEditableSave: function (field, row, oldValue, $el) {
                 var pid = [row.pid];
-                var url = "http://localhost:8080/person/" + pid;
+                var url = "http://localhost/person/" + pid;
                 $.ajax({
                     type: "PUT",
                     url: url,

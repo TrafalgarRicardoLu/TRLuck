@@ -15,20 +15,19 @@
 
     <!--Spring Security-->
 
-    <sec:http pattern="/person/**" security="none"/>
-    <sec:http pattern="/assets/**" security="none"/>
-    <sec:http pattern="/login.html" security="none"/>
-    <sec:http pattern="/login_failure.html" security="none"/>
+    <sec:http security="none" pattern="/mp/addPerson" />
+    <sec:http security="none" pattern="/person/"/>
+    <sec:http security="none" pattern="/person"/>
 
     <sec:http auto-config="true">
         <sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
         <sec:csrf disabled="true"/>
-        <sec:form-login login-page="/login.html" default-target-url="/"
-                        login-processing-url="/loginCheck"
+        <sec:form-login login-page="http://localhost/login.html" default-target-url="http://localhost:8080/ManagePeople-1.0/mp/"
+                        login-processing-url="/mp/loginCheck"
                         username-parameter="username"
                         password-parameter="password"
                         always-use-default-target="false"
-                        authentication-failure-url="/login_failure.html"></sec:form-login>
+                        authentication-failure-url="http://lcoalhost/login_failure.html"></sec:form-login>
     </sec:http>
 
     <bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>

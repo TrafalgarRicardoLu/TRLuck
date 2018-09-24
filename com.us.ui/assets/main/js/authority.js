@@ -19,7 +19,7 @@ $(function(){
 $(function () {
     $(function () {
         $('#AdminTable').bootstrapTable({
-            url: "http://localhost:8080/admin/",
+            url: "http://localhost/admin/",
             pagination: true,
             pageNumber: 1,
             pageSize: 10,
@@ -69,7 +69,7 @@ $(function () {
                 var end = role.indexOf('"');
                 role=role.substr(0,end);
                 row.authority.role=role;
-                var url = "http://localhost:8080/admin/" + row.aid;
+                var url = "http://localhost/admin/" + row.aid;
                 $.ajax({
                     type: "PUT",
                     url: url,

@@ -12,20 +12,21 @@ import service.AdminService;
  * @author trafalgar
  */
 @Controller
+@RequestMapping(value = "/ac")
 public class AdminController {
 
     @Autowired
     AdminService adminService;
 
-    @RequestMapping(value = "/authority",method = RequestMethod.GET)
+    @RequestMapping(value = "/",method = RequestMethod.GET)
     public String showAuthority(){
-        return "redirect:showAuthority.html";
+        return "redirect:http://localhost/showAuthority.html";
     }
 
     @RequestMapping(value = "/deleteAdmin",method = RequestMethod.GET)
     public String deleteAdminById(@Param("aid")Long aid){
         adminService.deleteAdminById(aid);
-        return "redirect:showAuthority.html";
+        return "/";
     }
 
 

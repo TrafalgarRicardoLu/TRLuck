@@ -19,9 +19,7 @@ public class AdminDaoTest {
 
     @Test
     public void AdminDaoTest() {
-
-        adminDao.updatePasswordById((long) 3,BCrypt.hashpw("lujianhui",BCrypt.gensalt()));
-
+        adminDao.updatePasswordById((long) 1,BCrypt.hashpw("lujianhui",BCrypt.gensalt()));
     }
 
 }

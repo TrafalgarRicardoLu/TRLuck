@@ -17,6 +17,7 @@ import java.util.Map;
  * @author trafalgar
  */
 @Controller
+@RequestMapping(value = "/mp")
 public class PersonController {
 
     private static Logger logger = LoggerFactory.getLogger(PersonController.class);
@@ -27,17 +28,17 @@ public class PersonController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
-        return "redirect:index.html";
+        return "redirect:http://localhost/index.html";
     }
-
-    @RequestMapping(value="/addNewPerson",method = RequestMethod.GET)
-    public String addNewPerson(){
-        return "addNewPerson.html";
-    }
+//
+//    @RequestMapping(value="/addNewPerson",method = RequestMethod.GET)
+//    public String addNewPerson(){
+//        return "addNewPerson.html";
+//    }
 
     @RequestMapping(value = "/showPeople",method = RequestMethod.GET)
     public String showAllPeople(){
-        return "showPeople.html";
+        return "redirect:http://localhost/showPeople.html";
     }
 
 
@@ -49,13 +50,13 @@ public class PersonController {
                                @RequestParam(value = "day") String day,
                                @RequestParam(value = "department") String department) {
         personService.insertNewPerson(pname, sex, year, month, day, department);
-        return "redirect:showPeople.html";
+        return "/mp/showPeople";
     }
 
     @RequestMapping(value = "/deletePerson", method = RequestMethod.GET)
     public String deletePerson(@RequestParam(value = "deletedPid") String pid) {
         personService.deletePersonById(Long.valueOf(pid));
-        return "redirect:showPeople.html";
+        return "/mp/showPeople";
     }
 
 
