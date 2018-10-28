@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Collapsible sidebar using Bootstrap 3</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://localhost/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/bootstrap/css/bootstrap-table.css">
+    <link rel="stylesheet"
+          href="//rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="http://localhost/main/css/style.css">
+    <link rel="stylesheet" href="http://localhost/font-awesome/css/font-awesome.min.css">
+    <!-- jQuery  -->
+    <script src="http://localhost/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap Js  -->
+    <script src="http://localhost/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://localhost/bootstrap/js/bootstrap-table.js"></script>
+    <script src="http://localhost/bootstrap/js/bootstrap-editable.js"></script>
+    <script src="http://localhost/bootstrap/js/bootstrap-table-editable.js"></script>
+    <script src="http://localhost/bootstrap/js/bootstrap-table-zh-CN.js"></script>
+    <script src="http://localhost/main/js/person.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Universal System</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a href="/mp/">Home</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Person</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li><a href="/mp/showPeople">Show All Person</a></li>
+                    <li><a href="/mp/addNewPerson">Add Person</a></li>
+                    <li><a href="/ac/showAdmin">Authority</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- Page Content Holder -->
+    <div id="content">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                        <i></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="article">
+            <div id="toolbar">
+                <button id="remove" class="btn btn-danger" disabled>
+                    <i class="glyphicon glyphicon-remove"></i> Delete
+                </button>
+            </div>
+            <table id="PersonTable"
+                   data-toolbar="#toolbar"></table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

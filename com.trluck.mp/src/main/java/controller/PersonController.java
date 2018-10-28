@@ -30,33 +30,33 @@ public class PersonController {
     public String index() {
         return "redirect:http://localhost/index.html";
     }
-//
-//    @RequestMapping(value="/addNewPerson",method = RequestMethod.GET)
-//    public String addNewPerson(){
-//        return "addNewPerson.html";
-//    }
 
-    @RequestMapping(value = "/showPeople",method = RequestMethod.GET)
-    public String showAllPeople(){
-        return "redirect:http://localhost/showPeople.html";
+    @RequestMapping(value = "/showPeople", method = RequestMethod.GET)
+    public String showAllPeoples() {
+        return "showPeople.html";
     }
 
 
+    @RequestMapping(value = "/addNewPerson", method = RequestMethod.GET)
+    public String addNewPerson() {
+        return "addNewPerson.html";
+    }
+
     @RequestMapping(value = "/addPerson", method = RequestMethod.POST)
     public String insertNewPerson(@RequestParam(value = "pname") String pname,
-                               @RequestParam(value = "sex") String sex,
-                               @RequestParam(value = "year") String year,
-                               @RequestParam(value = "month") String month,
-                               @RequestParam(value = "day") String day,
-                               @RequestParam(value = "department") String department) {
+                                  @RequestParam(value = "sex") String sex,
+                                  @RequestParam(value = "year") String year,
+                                  @RequestParam(value = "month") String month,
+                                  @RequestParam(value = "day") String day,
+                                  @RequestParam(value = "department") String department) {
         personService.insertNewPerson(pname, sex, year, month, day, department);
-        return "/mp/showPeople";
+        return "showPeople.html";
     }
 
     @RequestMapping(value = "/deletePerson", method = RequestMethod.GET)
     public String deletePerson(@RequestParam(value = "deletedPid") String pid) {
         personService.deletePersonById(Long.valueOf(pid));
-        return "/mp/showPeople";
+        return "showPeople.html";
     }
 
 

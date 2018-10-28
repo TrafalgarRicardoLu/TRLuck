@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>com.trluck.ac</module>
+        <module>com.trluck.restful</module>
         <module>com.trluck.mp</module>
     </modules>
 

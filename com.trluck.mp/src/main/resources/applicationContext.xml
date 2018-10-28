@@ -14,32 +14,29 @@
 
 
     <!--Spring Security-->
+    <!--<sec:http security="none" pattern="/person"/>-->
 
-    <sec:http security="none" pattern="/mp/addPerson" />
-    <sec:http security="none" pattern="/person/"/>
-    <sec:http security="none" pattern="/person"/>
+    <!--<sec:http auto-config="true">-->
+        <!--<sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>-->
+        <!--<sec:csrf disabled="true"/>-->
+        <!--<sec:form-login login-page="http://localhost/login.html" default-target-url="/mp/"-->
+                        <!--login-processing-url="http://localhost:8080/loginCheck"-->
+                        <!--username-parameter="username"-->
+                        <!--password-parameter="password"-->
+                        <!--always-use-default-target="false"-->
+                        <!--authentication-failure-url="http://lcoalhost/login_failure.html"></sec:form-login>-->
+    <!--</sec:http>-->
 
-    <sec:http auto-config="true">
-        <sec:intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
-        <sec:csrf disabled="true"/>
-        <sec:form-login login-page="http://localhost/login.html" default-target-url="http://localhost:8080/ManagePeople-1.0/mp/"
-                        login-processing-url="/mp/loginCheck"
-                        username-parameter="username"
-                        password-parameter="password"
-                        always-use-default-target="false"
-                        authentication-failure-url="http://lcoalhost/login_failure.html"></sec:form-login>
-    </sec:http>
+    <!--<bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>-->
 
-    <bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
-
-    <sec:authentication-manager>
-        <sec:authentication-provider>
-            <sec:password-encoder ref="bcryptEncoder"/>
-            <sec:jdbc-user-service data-source-ref="dataSource"
-                                   users-by-username-query="select aname,password,enabled from Admin where aname= ?"
-                                   authorities-by-username-query="select aname,role from Admin_Role where aname =?"/>
-        </sec:authentication-provider>
-    </sec:authentication-manager>
+    <!--<sec:authentication-manager>-->
+        <!--<sec:authentication-provider>-->
+            <!--<sec:password-encoder ref="bcryptEncoder"/>-->
+            <!--<sec:jdbc-user-service data-source-ref="dataSource"-->
+                                   <!--users-by-username-query="select aname,password from Admin where aname= ?"-->
+                                   <!--authorities-by-username-query="select aname,role,enabled from Authority where aname =?"/>-->
+        <!--</sec:authentication-provider>-->
+    <!--</sec:authentication-manager>-->
 
 
     <context:component-scan base-package="entity,controller,service,utils">
