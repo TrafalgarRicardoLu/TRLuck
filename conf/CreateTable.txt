@@ -1,0 +1,21 @@
+create database trluck charset utf8
+
+create table Person(
+    id int  not null auto_increment primary key,
+    name varchar(16) not null,
+    birth date not null,
+    sex boolean not null,
+    department varchar(20)
+)
+
+create table Admin(
+    id int  not null auto_increment primary key,
+    name varchar(16) not null,
+    password varchar(60) not null
+)
+
+create table Authority(
+    name varchar(16) not null,
+    role varchar(10) not null,
+    enabled boolean not null
+)
