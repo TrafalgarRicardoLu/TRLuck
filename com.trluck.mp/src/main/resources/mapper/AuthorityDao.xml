@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.AuthorityDao">
     <resultMap id="AuthorityMap" type="entity.Authority">
-        <id property="arid" column="arid"/>
-        <result property="aname" column="aname"/>
-        <result property="isEnabled" column="enabled"/>
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="enabled" column="enabled"/>
         <result property="role" column="role"/>
     </resultMap>
 
@@ -23,7 +23,7 @@
         FROM
             Admin_Role
         WHERE
-            arid = #{arid}
+            id = #{id}
     </select>
 
     <update id="updateEnableById">
@@ -32,7 +32,7 @@
         SET
             enabled = #{enabled}
         WHERE
-            arid = #{arid}
+            id = #{id}
     </update>
 
     <update id="updateRoleById">
@@ -41,7 +41,7 @@
         SET
             role = #{role}
         WHERE
-            arid = #{arid}
+            id = #{id}
     </update>
 
     <update id="updateRoleByAname">

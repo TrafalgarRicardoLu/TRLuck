@@ -5,10 +5,9 @@ package entity;
  */
 public class Authority {
 
-    private Integer arid;
-    private String aname;
+    private String name;
     private String role;
-    private boolean isEnabled;
+    private boolean enabled;
 
     public String getRole() {
         return role;
@@ -18,33 +17,19 @@ public class Authority {
         this.role = role;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public boolean isEnabled() {
-        return isEnabled;
+        return enabled;
     }
 
     public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
-    }
-
-    public Integer getArid() {
-        return arid;
-    }
-
-    public void setArid(Integer arid) {
-        this.arid = arid;
-    }
-
-    public String getAname() {
-        return aname;
-    }
-
-    public void setAname(String aname) {
-        this.aname = aname;
-    }
-
-    @Override
-    public String toString(){
-        String ans = this.arid + " " + this.aname+" "+this.isEnabled+" "+this.role;
-        return ans;
+        this.enabled = enabled;
     }
 }

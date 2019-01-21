@@ -12,11 +12,11 @@ public interface AuthorityDao {
 
     List<Authority> listAuthority();
 
-    Authority selectAuthorityById(@Param("arid") Long arid);
+    Authority selectAuthorityById(@Param("id") Long id);
 
-    void updateEnableById(@Param("arid") Long arid, @Param("enabled") boolean enabled);
+    void updateEnableById(@Param("id") Long id, @Param("enabled") boolean enabled);
 
-    void updateRoleById(@Param("arid") Long arid, @Param("role") String role);
+    void updateRoleById(@Param("id") Long arid, @Param("role") String role);
 
-    void updateRoleByAname(@Param("aname") String aname, @Param("role") String role);
+    void updateRoleByAname(@Param("name") String name, @Param("role") String role);
 }
