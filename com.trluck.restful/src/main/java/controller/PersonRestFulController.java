@@ -27,25 +27,25 @@ public class PersonRestFulController {
     }
 
 
-    @RequestMapping(value = "/{pid}", method = RequestMethod.GET)
-    public Person getPersonById(@PathVariable(value = "pid") Integer pid) {
-        return personService.selectPersonById(pid.longValue());
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Person getPersonById(@PathVariable(value = "id") Integer id) {
+        return personService.selectPersonById(id.longValue());
     }
 
-    @RequestMapping(value = "/{pid}", method = RequestMethod.DELETE)
-    public void deletePersonById(@PathVariable(value = "pid") Integer pid) {
-        personService.deletePersonById(pid.longValue());
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deletePersonById(@PathVariable(value = "id") Integer id) {
+        personService.deletePersonById(id.longValue());
     }
 
 
-    @RequestMapping(value = "/{pid}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public void createNewPerson(@RequestBody Person person) {
         personService.insertNewPerson(person);
     }
 
-    @RequestMapping(value = "/{pid}",method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
     public @ResponseBody Person updatePersonById(@RequestBody Person person) {
         personService.updatePerson(person);
-        return personService.selectPersonById(person.getPid());
+        return personService.selectPersonById(person.getId());
     }
 }

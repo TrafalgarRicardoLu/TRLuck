@@ -1,6 +1,5 @@
 package controller;
 
-import entity.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import service.PersonService;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author trafalgar
@@ -43,13 +39,13 @@ public class PersonController {
     }
 
     @RequestMapping(value = "/addPerson", method = RequestMethod.POST)
-    public String insertNewPerson(@RequestParam(value = "pname") String pname,
+    public String insertNewPerson(@RequestParam(value = "name") String name,
                                   @RequestParam(value = "sex") String sex,
                                   @RequestParam(value = "year") String year,
                                   @RequestParam(value = "month") String month,
                                   @RequestParam(value = "day") String day,
                                   @RequestParam(value = "department") String department) {
-        personService.insertNewPerson(pname, sex, year, month, day, department);
+        personService.insertNewPerson(name, sex, year, month, day, department);
         return "showPeople.html";
     }
 

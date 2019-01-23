@@ -3,9 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.PersonDao">
+    <cache/>
     <resultMap id="PersonMap" type="entity.Person">
-        <id property="pid" column="pid"/>
-        <result property="pname" column="pname"/>
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
         <result property="birth" column="birth"/>
         <result property="sex" column="sex"/>
         <result property="department" column="department"/>
@@ -25,14 +26,14 @@
             FROM
                 Person
             WHERE
-                pid = #{pid}
+                id = #{id}
     </select>
 
-    <insert id="insertNewPerson" useGeneratedKeys="true" keyProperty="pid">
+    <insert id="insertNewPerson" useGeneratedKeys="true" keyProperty="id">
             INSERT
             INTO
-                Person (pname,birth,sex,department)
-            VALUES (#{pname},#{birth},#{sex},#{department})
+                Person (name,birth,sex,department)
+            VALUES (#{name},#{birth},#{sex},#{department})
     </insert>
 
     <update id="updateBirthById">
@@ -41,7 +42,7 @@
             SET
                 birth = #{birth}
             WHERE
-                pid = #{pid}
+                id = #{id}
     </update>
 
     <delete id="deletePersonById" parameterType="Long">
@@ -49,7 +50,7 @@
         FROM
               Person
         WHERE
-              pid = #{pid}
+              id = #{id}
     </delete>
 
     <update id="updateDepartmentById">
@@ -58,14 +59,14 @@
         SET
             department = #{department}
         WHERE
-            pid = #{pid}
+            id = #{id}
     </update>
      <update id="updatePnameById">
         UPDATE
             Person
         SET
-            Pname = #{pname}
+            name = #{name}
         WHERE
-            pid = #{pid}
+            id = #{id}
     </update>
 </mapper>

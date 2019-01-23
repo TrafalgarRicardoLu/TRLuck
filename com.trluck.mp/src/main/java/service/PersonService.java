@@ -27,7 +27,7 @@ public class PersonService {
     }
 
     public void insertNewPerson(Person person){
-        personDao.insertNewPerson(person.getPname(),person.getSex(),person.getBirth(),person.getDepartment());
+        personDao.insertNewPerson(person.getName(),person.getSex(),person.getBirth(),person.getDepartment());
     }
 
     public void insertNewPerson(String name, String sex,String year,String month,String day, String depaertment) {
@@ -44,15 +44,15 @@ public class PersonService {
     }
 
     public void updatePerson(Person person){
-        Person origin = selectPersonById(person.getPid());
+        Person origin = selectPersonById(person.getId());
         if(!origin.getBirth().equals(person.getBirth())){
-            personDao.updateBirthById(person.getBirth(),person.getPid());
+            personDao.updateBirthById(person.getBirth(),person.getId());
         }
         if(!origin.getDepartment().equals(person.getDepartment())){
-            personDao.updateDepartmentById(person.getDepartment(),person.getPid());
+            personDao.updateDepartmentById(person.getDepartment(),person.getId());
         }
-        if(!origin.getPname().equals(person.getPname())){
-            personDao.updatePnameById(person.getPname(),person.getPid());
+        if(!origin.getName().equals(person.getName())){
+            personDao.updatePnameById(person.getName(),person.getId());
         }
     }
 

@@ -19,7 +19,7 @@ $(function(){
 $(function () {
     $(function () {
         $('#AdminTable').bootstrapTable({
-            url: "http://localhost:8080/rest/admin/",
+            url: "http://localhost/rest/admin/",
             pagination: true,
             pageNumber: 1,
             pageSize: 10,
@@ -30,15 +30,15 @@ $(function () {
             queryParams: function (param) {
                 return {};
             },
-            idField: "aid",
+            idField: "id",
             columns: [{
                 checkbox: true
             }, {
-                field: "aid",
+                field: "id",
                 title: "ID",
                 align: 'center'
             }, {
-                field: "aname",
+                field: "name",
                 title: "Name",
                 align: 'center',
                 editable: {
@@ -69,7 +69,7 @@ $(function () {
                 var end = role.indexOf('"');
                 role=role.substr(0,end);
                 row.authority.role=role;
-                var url = "http://localhost:8080/rest/admin/" + row.aid;
+                var url = "http://localhost/rest/admin/" + row.id;
                 $.ajax({
                     type: "PUT",
                     url: url,
@@ -95,8 +95,8 @@ $(function () {
 
 
         function operateFormatter(value, row, index) {
-            var aid = [row.aid];
-            var Url = '<a id="Remove" methods="GET" class="fa fa-times-circle-o" href="http://localhost:8080/deleteAdmin?aid=' + aid + '" onclick="return deleteConfirm()" title="Remove">';
+            var id = [row.id];
+            var Url = '<a id="Remove" methods="GET" class="fa fa-times-circle-o" href="http://localhost:8080/deleteAdmin?id=' + id + '" onclick="return deleteConfirm()" title="Remove">';
             return [
                 Url,
                 '</a>'
@@ -107,7 +107,7 @@ $(function () {
             window.operateEvents = {
                 'click .remove': function (e, value, row, index) {
                     $("#PersonTable").bootstrapTable('remove', {
-                        field: 'pid',
+                        field: 'id',
                         values: [row.id]
                     });
                 }

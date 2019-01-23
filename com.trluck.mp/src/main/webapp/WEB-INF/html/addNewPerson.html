@@ -19,19 +19,19 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Universal System</h3>
+            <h3>TRLuck</h3>
         </div>
 
         <ul class="list-unstyled components">
             <li>
-                <a href="/mp/">Home</a>
+                <a href="/MP/mp/">Home</a>
             </li>
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Person</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><a href="/mp/showPeople">Show All Person</a></li>
-                    <li><a href="/mp/addNewPerson">Add Person</a></li>
-                    <li><a href="/ac/showAdmin">Authority</a></li>
+                    <li><a href="/MP/mp/showPeople">Show All Person</a></li>
+                    <li><a href="/MP/mp/addNewPerson">Add Person</a></li>
+                    <li><a href="/MP/ac/showAdmin">Authority</a></li>
                 </ul>
             </li>
         </ul>
@@ -53,11 +53,11 @@
             </div>
         </nav>
         <div class="section">
-            <form id="addForm" class="form-horizontal form-center" method="post" action="/mp/addPerson">
+            <form id="addForm" class="form-horizontal form-center" method="post" action="/MP/mp/addPerson">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Name</label>
                     <div class="col-sm-10">
-                        <input class="form-control" name="pname" placeholder="Your Name">
+                        <input class="form-control" name="name" placeholder="Your Name">
                     </div>
                 </div>
                 <div class="form-group">
@@ -74,10 +74,10 @@
                     <label class="col-sm-2 control-label">Sex</label>
                     <div class="col-sm-10">
                         <label for="sex_male" class="radio-inline">
-                            <input type="radio" id="sex_male" name="sex" value="male"> Male
+                            <input type="radio" id="sex_male" name="sex" value="1"> Male
                         </label>
                         <label for="sex_female" class="radio-inline">
-                            <input type="radio" id="sex_female" name="sex" value="female"> Female
+                            <input type="radio" id="sex_female" name="sex" value="0"> Female
                         </label>
                         <label for="sex" class="error" style="padding-left:30%"></label>
                     </div>

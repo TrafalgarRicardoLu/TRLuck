@@ -36,18 +36,18 @@ public class AdminService {
 
 
     public void updateAdmin(Admin admin) {
-        Admin origin = selectAdminById(admin.getAid());
+        Admin origin = selectAdminById(admin.getId());
         if (!BCrypt.checkpw(origin.getPassword(), admin.getPassword())) {
             String password = admin.getPassword();
             password = BCrypt.hashpw(password, BCrypt.gensalt());
-            adminDao.updatePasswordById(admin.getAid(), password);
+            adminDao.updatePasswordById(admin.getId(), password);
         }
-        if (!origin.getAname().equals(admin.getAname())) {
-            adminDao.updateAnameById(admin.getAid(), admin.getAname());
+        if (!origin.getName().equals(admin.getName())) {
+            adminDao.updateAnameById(admin.getId(), admin.getName());
         }
         System.out.println(admin.getAuthority().getRole());
         if (!origin.getAuthority().getRole().equals(admin.getAuthority().getRole())) {
-            authorityDao.updateRoleByAname(admin.getAname(),admin.getAuthority().getRole());
+            authorityDao.updateRoleByAname(admin.getName(),admin.getAuthority().getRole());
         }
     }
 

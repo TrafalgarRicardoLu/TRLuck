@@ -5,26 +5,10 @@ package entity;
  */
 public class Admin {
 
-    private Long aid;
-    private String aname;
+    private Long id;
+    private String name;
     private String password;
     private Authority  authority;
-
-    public Long getAid() {
-        return aid;
-    }
-
-    public void setAid(Long aid) {
-        this.aid = aid;
-    }
-
-    public String getAname() {
-        return aname;
-    }
-
-    public void setAname(String aname) {
-        this.aname = aname;
-    }
 
     public String getPassword() {
         return password;
@@ -40,5 +24,21 @@ public class Admin {
 
     public void setAuthority(Authority authority) {
         this.authority = authority;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

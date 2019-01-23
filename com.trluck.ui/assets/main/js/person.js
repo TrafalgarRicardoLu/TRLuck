@@ -2,7 +2,7 @@ $(function () {
     $(document).ready(function () {
         $("#addForm").validate({
             rules: {
-                pname: {
+                name: {
                     required: true
                 },
                 password: {
@@ -14,7 +14,7 @@ $(function () {
 
             },
             messages: {
-                pname: {
+                name: {
                     required: "Can't be empty"
                 },
                 password: {
@@ -82,7 +82,7 @@ function deleteConfirm() {
 $(function () {
     $(function () {
         $('#PersonTable').bootstrapTable({
-            url: "http://localhost:8080/rest/person/",
+            url: "http://localhost/rest/person/",
             pagination: true,
             pageNumber: 1,
             pageSize: 10,
@@ -93,15 +93,15 @@ $(function () {
             queryParams: function (param) {
                 return {};
             },
-            idField: "pid",
+            idField: "id",
             columns: [{
                 checkbox: true
             }, {
-                field: "pid",
+                field: "id",
                 title: "ID",
                 align: 'center'
             }, {
-                field: "pname",
+                field: "name",
                 title: "Name",
                 align: 'center',
                 editable: {
@@ -143,8 +143,8 @@ $(function () {
                 formatter: operateFormatter
             }],
             onEditableSave: function (field, row, oldValue, $el) {
-                var pid = [row.pid];
-                var url = "http://localhost:8080/rest/person/" + pid;
+                var id = [row.id];
+                var url = "http://localhost/rest/person/" + id;
                 $.ajax({
                     type: "PUT",
                     url: url,
@@ -169,8 +169,8 @@ $(function () {
         });
 
         function operateFormatter(value, row, index) {
-            var pid = [row.pid];
-            var Url = '<a id="Remove" class="fa fa-times-circle-o" href="http://localhost:8080/deletePerson?deletedPid=' + pid + '"onclick="return deleteConfirm()" title="Remove">';
+            var id = [row.id];
+            var Url = '<a id="Remove" class="fa fa-times-circle-o" href="http://localhost/deletePerson?deletedPid=' + id + '"onclick="return deleteConfirm()" title="Remove">';
             return [
                 Url,
                 '</a>'
@@ -181,7 +181,7 @@ $(function () {
             window.operateEvents = {
                 'click .remove': function (e, value, row, index) {
                     $("#PersonTable").bootstrapTable('remove', {
-                        field: 'pid',
+                        field: 'id',
                         values: [row.id]
                     });
                 }

@@ -1,14 +1,16 @@
 package entity;
 
 
+import java.io.Serializable;
+
 /**
  * @author trafalgar
  */
-public class Person {
+public class Person implements Serializable {
 
-    private Long pid;
+    private Long id;
 
-    private String pname;
+    private String name;
 
     private String sex;
 
@@ -29,23 +31,6 @@ public class Person {
     }
 
 
-    public Long getPid() {
-        return pid;
-    }
-
-    public void setPid(Long pid) {
-        this.pid = pid;
-    }
-
-
-    public String getPname() {
-        return pname;
-    }
-
-    public void setPname(String pname) {
-        this.pname = pname;
-    }
-
     public String getDepartment() {
         return department;
     }
@@ -60,5 +45,21 @@ public class Person {
 
     public void setBirth(String birth) {
         this.birth = birth;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

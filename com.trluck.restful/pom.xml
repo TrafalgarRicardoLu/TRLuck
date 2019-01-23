@@ -10,7 +10,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.trluck.restful</groupId>
-    <artifactId>restfulAPI</artifactId>
+    <artifactId>RestfulAPI</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
