@@ -114,6 +114,11 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>1.3.1</version>
             </dependency>
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>2.8.0</version>
+            </dependency>
             <!--JBcrypt-->
             <dependency>
                 <groupId>org.mindrot</groupId>

@@ -1,4 +1,6 @@
-package utils;
+package utils.conf;
+
+import utils.conf.CastUtil;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

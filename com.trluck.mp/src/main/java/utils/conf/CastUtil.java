@@ -1,4 +1,4 @@
-package utils;
+package utils.conf;
 
 
 public final class CastUtil {

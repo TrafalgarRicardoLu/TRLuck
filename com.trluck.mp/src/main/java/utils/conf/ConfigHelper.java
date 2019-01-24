@@ -1,4 +1,4 @@
-package utils;
+package utils.conf;
 
 import java.util.Properties;
 
@@ -16,17 +16,17 @@ public final class ConfigHelper {
         return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.REDIS_IP);
     }
 
-    public static String getRedisPort() {
-        return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.REDIS_PORT);
+    public static int getRedisPort() {
+        return PropsUtil.getInt(CONFIG_PROPS, ConfigConstant.REDIS_PORT);
     }
 
-    public static String getMaxActive(){
-        return PropsUtil.getString(CONFIG_PROPS,ConfigConstant.JEDIS_POOL_MAX_ACTIVE);
+    public static int getMaxActive(){
+        return PropsUtil.getInt(CONFIG_PROPS,ConfigConstant.JEDIS_POOL_MAX_ACTIVE);
     }
 
-    public static String getMaxIdle(){return  PropsUtil.getString(CONFIG_PROPS,ConfigConstant.JEDIS_POOL_MAX_IDLE);}
+    public static int getMaxIdle(){return  PropsUtil.getInt(CONFIG_PROPS,ConfigConstant.JEDIS_POOL_MAX_IDLE);}
 
-    public static String getMaxWait(){return  PropsUtil.getString(CONFIG_PROPS,ConfigConstant.JEDIS_POOL_MAX_WAIT);}
+    public static int getMaxWait(){return  PropsUtil.getInt(CONFIG_PROPS,ConfigConstant.JEDIS_POOL_MAX_WAIT);}
 
     public static String getRedsiSwitch(){return  PropsUtil.getString(CONFIG_PROPS,ConfigConstant.REDIS_SWITCH);}
 }

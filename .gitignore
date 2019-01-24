@@ -23,6 +23,7 @@ hs_err_pid*
 
 #Maven
 /target
+/test
 
 
 #IDEA

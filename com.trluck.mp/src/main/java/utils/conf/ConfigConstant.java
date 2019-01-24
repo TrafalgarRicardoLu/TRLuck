@@ -1,4 +1,4 @@
-package utils;
+package utils.conf;
 
 /**
  * 提供相关配置项常亮
