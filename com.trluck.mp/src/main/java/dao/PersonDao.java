@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Person;
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

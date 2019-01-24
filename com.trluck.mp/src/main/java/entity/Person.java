@@ -14,7 +14,7 @@ public class Person implements Serializable {
 
     private String sex;
 
-    private String  birth;
+    private String birth;
 
     private String department;
 
@@ -61,5 +61,16 @@ public class Person implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birth='" + birth + '\'' +
+                ", department='" + department + '\'' +
+                '}';
     }
 }

@@ -68,7 +68,7 @@
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描Dao接口包 -->
-        <property name="basePackage" value="dao,entity"/>
+        <property name="basePackage" value="dao,entity,utils"/>
     </bean>
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>

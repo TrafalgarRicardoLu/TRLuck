@@ -118,6 +118,10 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
         </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
         <!--JBcrypt-->
         <dependency>
             <groupId>org.mindrot</groupId>
